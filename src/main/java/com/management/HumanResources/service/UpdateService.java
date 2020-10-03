@@ -11,7 +11,7 @@ public class UpdateService {
     @Autowired private FirebaseDao firebase;
     @Autowired private TimeOffService timeOffService;
 
-    //TODO Here we wil be the logic to check if an employee exists
+    //TODO Here will be the logic to check if an employee exists
     // along with other checks before it is pushed to the database
 
 }
