@@ -30,15 +30,15 @@ public class FirebaseDao extends Dao {
       return getListOfObjects(Employee.class, "path");
   }
 
-  public Employee getSingleEmployee(int id) {
+  public Employee getEmployee(int id) {
       return getSingleObject(Employee.class, "path/{employeeId}", id);
   }
 
-  public String updateSingleEmployee(Employee employee) {
+  public String updateEmployee(Employee employee) {
     return patchSingleObject(String.class, "path", employee);
   }
 
-  public String postNewEmployee(Employee employee) {
+  public String addEmployee(Employee employee) {
       return postSingleObject(String.class, "path", employee);
   }
 
@@ -46,7 +46,7 @@ public class FirebaseDao extends Dao {
       return getListOfObjects(TimeOff.class, "path");
   }
 
-  public TimeOff getSingleTimeOff(int id) {
+  public TimeOff getTimeOff(int id) {
     return getSingleObject(TimeOff.class, "path/{employeeId}", id);
   }
 

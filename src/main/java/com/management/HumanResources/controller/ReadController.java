@@ -25,8 +25,8 @@ public class ReadController {
     }
 
     @GetMapping(path = "/employee/{id}")
-    public Employee getSpecificEmployee(@PathVariable int id) {
-        return firebase.getSingleEmployee(id);
+    public Employee getEmployee(@PathVariable int id) {
+        return firebase.getEmployee(id);
     }
     
     /*
