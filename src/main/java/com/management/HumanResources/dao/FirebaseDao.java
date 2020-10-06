@@ -16,42 +16,39 @@ public class FirebaseDao extends Dao {
   private void init() {
     webClient =
         WebClient.builder()
-            .baseUrl("TBD")
-            .defaultHeaders(
-                httpHeaders ->
-                    httpHeaders.setBasicAuth(
-                        "TODO databaseUsername", "TODO databasePassword"))
+            .baseUrl("https://humanocity-{key}.firebaseio.com")
             .build();
   }
+  //Replace {key} with our database id when you are testing
 
   //Database paths are just placeholders until the actual ones are created
 
   public List<Employee> getAllEmployees() {
-      return getListOfObjects(Employee.class, "path");
+      return getListOfObjects(Employee.class, "/employees.json");
   }
 
   public Employee getEmployee(int id) {
-      return getSingleObject(Employee.class, "path/{employeeId}", id);
+      return getSingleObject(Employee.class, "/employees/{employeeId}.json", id);
   }
 
   public String updateEmployee(Employee employee) {
-    return patchSingleObject(String.class, "path", employee);
+    return patchSingleObject(String.class, "/employees/{employeeId}.json", employee, employee.getId());
   }
 
   public String addEmployee(Employee employee) {
-      return postSingleObject(String.class, "path", employee);
+      return putSingleObject(String.class, "/employees/{employeeId}.json", employee, employee.getId());
   }
 
   public List<TimeOff> getAllTimeOffs() {
-      return getListOfObjects(TimeOff.class, "path");
+      return getListOfObjects(TimeOff.class, "/time.json");
   }
 
   public TimeOff getTimeOff(int id) {
-    return getSingleObject(TimeOff.class, "path/{employeeId}", id);
+    return getSingleObject(TimeOff.class, "/time/{employeeId}.json", id);
   }
 
   public String updateTimeOff(TimeOff time) {
-      return postSingleObject(String.class, "path", time);
+      return patchSingleObject(String.class, "/time/{employeeId}.json", time, time.getId());
   }
 }
 

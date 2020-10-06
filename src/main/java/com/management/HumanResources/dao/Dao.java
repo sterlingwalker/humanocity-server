@@ -30,10 +30,10 @@ public class Dao {
         .block();
   }
 
-  public <T> T postSingleObject(
+  public <T> T putSingleObject(
       Class<T> classReturnType, String path, Object body, Object... args) {
     return webClient
-        .post()
+        .put()
         .uri(uriBuilder -> uriBuilder.path(path).build(args))
         .accept(MediaType.APPLICATION_JSON)
         .bodyValue(body)
