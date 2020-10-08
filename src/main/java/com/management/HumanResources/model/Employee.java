@@ -9,14 +9,14 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Employee {
 
-    private int id;
+    private long id;
     private String firstName;
     private String lastName;
     private String email;
-    private int salary;
+    private String salary;
     private String position;
     private Address address;
-    private int managerID;
-    private String department;
+    private long managerID;
+    private String dept;
 
 }

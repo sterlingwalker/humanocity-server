@@ -19,15 +19,14 @@ public class FirebaseDao extends Dao {
             .baseUrl("https://humanocity-{key}.firebaseio.com")
             .build();
   }
-  //Replace {key} with our database id when you are testing
+  //NOTE: Replace {key} with our database id when you are testing
 
-  //Database paths are just placeholders until the actual ones are created
 
-  public List<Employee> getAllEmployees() {
-      return getListOfObjects(Employee.class, "/employees.json");
+  public String getAllEmployees() {
+      return getSingleObject(String.class, "/employees.json");
   }
 
-  public Employee getEmployee(int id) {
+  public Employee getEmployee(long id) {
       return getSingleObject(Employee.class, "/employees/{employeeId}.json", id);
   }
 
@@ -43,7 +42,7 @@ public class FirebaseDao extends Dao {
       return getListOfObjects(TimeOff.class, "/time.json");
   }
 
-  public TimeOff getTimeOff(int id) {
+  public TimeOff getTimeOff(long id) {
     return getSingleObject(TimeOff.class, "/time/{employeeId}.json", id);
   }
 
