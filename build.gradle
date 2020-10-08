@@ -19,6 +19,16 @@ repositories {
 	mavenCentral()
 }
 
+processResources {
+    filesMatching('**/application.properties') {
+        def props = new Properties()
+        file(System.getenv('HR_PROPS') + '/humanocity.properties').withInputStream {
+            props.load(it)
+        }
+        filter(org.apache.tools.ant.filters.ReplaceTokens, tokens: props)
+    }
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'

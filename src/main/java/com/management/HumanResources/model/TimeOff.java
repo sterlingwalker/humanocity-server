@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class TimeOff {
-    private int id;
+    private long id;
     //TODO
 }

@@ -8,19 +8,22 @@ import com.management.HumanResources.model.Employee;
 import com.management.HumanResources.model.TimeOff;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.reactive.function.client.WebClient;
 
 @Repository
 public class FirebaseDao extends Dao {
+
+  @Value("${firebase.link}")
+  public String firebaseLink;
+
   @PostConstruct
   private void init() {
     webClient =
         WebClient.builder()
-            .baseUrl("https://humanocity-{key}.firebaseio.com")
+            .baseUrl(firebaseLink)
             .build();
   }
-  //NOTE: Replace {key} with our database id when you are testing
-
 
   public String getAllEmployees() {
       return getSingleObject(String.class, "/employees.json");

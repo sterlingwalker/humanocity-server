@@ -32,7 +32,7 @@ public class ParseService {
         emp.setLastName(obj.getString("lastName"));
         emp.setEmail(obj.getString("email"));
         emp.setPosition(obj.getString("position"));
-        emp.setSalary(obj.getString("salary"));
+        emp.setSalary(obj.getInt("salary"));
         emp.setDept(obj.getString("dept"));
         emp.setManagerID(Long.parseLong(obj.getString("managerID")));
         emp.setId(Long.parseLong(obj.getString("id")));

@@ -13,7 +13,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private String salary;
+    private int salary;
     private String position;
     private Address address;
     private long managerID;
