@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class Address {
-    //TODO
+    private String city;
+    private String state;
+    private String street;
+    private String zipcode;
 
 }
