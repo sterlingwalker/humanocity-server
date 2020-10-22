@@ -1,0 +1,8 @@
+package com.management.HumanResources.model;
+
+import lombok.Data;
+
+@Data
+public class EmployeeTimeOff extends TimeOff {
+    private long employeeId;
+}
