@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 
 import com.management.HumanResources.model.Employee;
+import com.management.HumanResources.model.EmployeeTime;
 import com.management.HumanResources.model.TimeOff;
 
 import org.springframework.stereotype.Repository;
@@ -34,23 +35,26 @@ public class FirebaseDao extends Dao {
   }
 
   public String updateEmployee(Employee employee) {
-    return patchSingleObject(String.class, "/employees/{employeeId}.json", employee, employee.getId());
+      return patchSingleObject(String.class, "/employees/{employeeId}.json", employee, employee.getId());
   }
 
   public String addEmployee(Employee employee) {
       return putSingleObject(String.class, "/employees/{employeeId}.json", employee, employee.getId());
   }
 
-  public List<TimeOff> getAllTimeOffs() {
-      return getListOfObjects(TimeOff.class, "/time.json");
-  }
+    public String getAllEmployeeTimes() {
+        return getSingleObject(String.class, "/time.json");
+    }
 
-  public TimeOff getTimeOff(long id) {
-    return getSingleObject(TimeOff.class, "/time/{employeeId}.json", id);
-  }
-
-  public String updateTimeOff(TimeOff time) {
-      return patchSingleObject(String.class, "/time/{employeeId}.json", time, time.getId());
-  }
+    public EmployeeTime getEmployeeTime(long employeeId) {
+        return getSingleObject(EmployeeTime.class, "/time/{employeeId}.json", employeeId);
+    }
+  
+    public String updateEmployeeTime(EmployeeTime employeeTime) {
+        return patchSingleObject(String.class, "/time/{employeeId}.json", employeeTime, employeeTime.getEmployeeId());
+    }
+  
+    public String addEmployeeTime(EmployeeTime employeeTime) {
+        return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime, employeeTime.getEmployeeId());
+    }
 }
-
