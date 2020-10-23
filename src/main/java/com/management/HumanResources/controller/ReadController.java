@@ -24,7 +24,7 @@ public class ReadController {
 
     @GetMapping(path = "/employees")
     public List<Employee> getEmployees() {
-        return parseService.toEmployeeList(firebase.getAllEmployees()); //Need to parse for all employees due to the structure of firebase
+        return parseService.jsonToEmployeeList(firebase.getAllEmployees()); //Need to parse for all employees due to the structure of firebase
     }
 
     @GetMapping(path = "/employee/{id}")
@@ -34,7 +34,7 @@ public class ReadController {
 
     @GetMapping(path = "/employeeTimes")
     public List<EmployeeTime> getEmployeeTimes() {
-        return parseService.toEmployeeTimesList(firebase.getAllEmployeeTimes());
+        return parseService.jsonToEmployeeTimesList(firebase.getAllEmployeeTimes());
     }
 
     @GetMapping(path = "/schedule")

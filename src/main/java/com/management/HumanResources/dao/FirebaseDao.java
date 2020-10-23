@@ -46,8 +46,8 @@ public class FirebaseDao extends Dao {
         return getSingleObject(String.class, "/time.json");
     }
 
-    public Employee getEmployeeTime(long employeeId) {
-        return getSingleObject(Employee.class, "/time/{employeeId}.json", employeeId);
+    public EmployeeTime getEmployeeTime(long employeeId) {
+        return getSingleObject(EmployeeTime.class, "/time/{employeeId}.json", employeeId);
     }
   
     public String updateEmployeeTime(EmployeeTime employeeTime) {

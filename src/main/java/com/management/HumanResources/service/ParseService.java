@@ -21,7 +21,7 @@ public class ParseService {
 
     @Autowired private FirebaseDao firebase;
 
-    public List<Employee> toEmployeeList(String json) {
+    public List<Employee> jsonToEmployeeList(String json) {
         JSONObject jsonList = new JSONObject(json);
         List<Employee> employees = new ArrayList<Employee>();
         jsonList.keySet().forEach(key -> 
@@ -52,7 +52,7 @@ public class ParseService {
         return a;
     }
 
-	public List<EmployeeTime> toEmployeeTimesList(String json) {
+	public List<EmployeeTime> jsonToEmployeeTimesList(String json) {
 		JSONObject jsonList = new JSONObject(json);
         List<EmployeeTime> employeeTimes = new ArrayList<EmployeeTime>();
         jsonList.keySet().forEach(key -> 
@@ -61,38 +61,46 @@ public class ParseService {
     }
     
     public EmployeeTime jsonToEmployeeTime(JSONObject obj) {
-        EmployeeTime et = new EmployeeTime();
-        et.setEmployeeId(obj.getLong("employeeId"));
-        et.setTotalHours(obj.getInt("totalHours"));
-        et.setHoursRemaining(obj.getInt("hoursRemaining"));
-        et.setAvailability(toEmployeeAvailabilityArray(obj.getString("availability")));
-        et.setTimeOffs(toEmployeeTimeOffsList(obj.getString("timeOffs")));
-        return et;
+        EmployeeTime employeeTime = new EmployeeTime();
+        employeeTime.setEmployeeId(obj.getLong("employeeId"));
+        employeeTime.setTotalHours(obj.getInt("totalHours"));
+        employeeTime.setHoursRemaining(obj.getInt("hoursRemaining"));
+        employeeTime.setAvailability(csvToEmployeeAvailabilityArray(obj.getString("availability")));
+        employeeTime.setTimeOffs(psvToEmployeeTimeOffsList(obj.getString("timeOffs")));
+        return employeeTime;
     }
 
-    public String[] toEmployeeAvailabilityArray(String json) {
-		JSONObject jsonList = new JSONObject(json);
-        List<String> availabilityDays = new ArrayList<String>();
-        jsonList.keySet().forEach(key -> 
-            availabilityDays.add(jsonList.getString(key)));
-        String[] availabilityArray = new String[availabilityDays.size()];
-        return availabilityDays.toArray(availabilityArray);
+    public String[] csvToEmployeeAvailabilityArray(String csv) {
+        return csv.split(",");
     }
 
-    public List<TimeOff> toEmployeeTimeOffsList(String json) {
-		JSONObject jsonList = new JSONObject(json);
+    public List<TimeOff> psvToEmployeeTimeOffsList(String psv) { // PSV = Pipe | separated value I guess...
+        System.out.println(psv);
+        String[] employeeTimeOffCsvs = psv.split("\\|");
         List<TimeOff> timeOffs = new ArrayList<TimeOff>();
-        jsonList.keySet().forEach(key -> 
-            timeOffs.add(jsonToEmployeeTimeOff(jsonList.getJSONObject(key))));
+        for (String employeeTimeOffCsv : employeeTimeOffCsvs) {
+            System.out.println(employeeTimeOffCsv);
+            timeOffs.add(csvToEmployeeTimeOff(employeeTimeOffCsv));
+        }
         return timeOffs;
     }
 
-    public TimeOff jsonToEmployeeTimeOff(JSONObject obj) {
-        TimeOff to = new TimeOff();
+    public TimeOff csvToEmployeeTimeOff(String csv) {
+        // Expected format: yyyy-MM-dd HH:mm,yyyy-MM-dd HH:mm,boolean i.e. start,end,approved
+        System.out.println(csv);
+        String[] employeeTimeOffTokens = csv.split(",");
+        TimeOff timeOff = new TimeOff();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        to.setStart(LocalDateTime.parse(obj.getString("start"), formatter));
-        to.setEnd(LocalDateTime.parse(obj.getString("end"), formatter));
-        to.setApproved(obj.getBoolean("approved"));
-        return to;
+        timeOff.setStart(LocalDateTime.parse(employeeTimeOffTokens[0], formatter));
+        timeOff.setEnd(LocalDateTime.parse(employeeTimeOffTokens[1], formatter));
+
+        String approvedToken = employeeTimeOffTokens[2];
+        if(!approvedToken.equals("null"))
+        {
+            timeOff.setReviewed(true);
+            timeOff.setApproved(Boolean.parseBoolean(approvedToken));
+        }
+        
+        return timeOff;
     }
 }

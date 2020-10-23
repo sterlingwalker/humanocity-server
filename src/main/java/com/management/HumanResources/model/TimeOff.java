@@ -9,4 +9,5 @@ public class TimeOff {
     private LocalDateTime start;
     private LocalDateTime end;
     private boolean approved;
+    private boolean reviewed;
 }
