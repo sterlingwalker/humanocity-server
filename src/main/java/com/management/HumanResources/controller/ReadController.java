@@ -37,6 +37,11 @@ public class ReadController {
         return parseService.jsonToEmployeeTimesList(firebase.getAllEmployeeTimes());
     }
 
+    @GetMapping(path = "/employeeTime/{id}")
+    public EmployeeTime getEmployeeTime(@PathVariable long id) {
+        return firebase.getEmployeeTime(id);
+    }
+
     @GetMapping(path = "/schedule")
     public List<ScheduleEntry> getSchedule() {
         List<EmployeeTime> employeeTimes = getEmployeeTimes();
