@@ -75,11 +75,9 @@ public class ParseService {
     }
 
     public List<TimeOff> psvToEmployeeTimeOffsList(String psv) { // PSV = Pipe | separated value I guess...
-        System.out.println(psv);
         String[] employeeTimeOffCsvs = psv.split("\\|");
         List<TimeOff> timeOffs = new ArrayList<TimeOff>();
         for (String employeeTimeOffCsv : employeeTimeOffCsvs) {
-            System.out.println(employeeTimeOffCsv);
             timeOffs.add(csvToEmployeeTimeOff(employeeTimeOffCsv));
         }
         return timeOffs;
@@ -87,7 +85,6 @@ public class ParseService {
 
     public TimeOff csvToEmployeeTimeOff(String csv) {
         // Expected format: yyyy-MM-dd HH:mm,yyyy-MM-dd HH:mm,boolean i.e. start,end,approved
-        System.out.println(csv);
         String[] employeeTimeOffTokens = csv.split(",");
         TimeOff timeOff = new TimeOff();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");

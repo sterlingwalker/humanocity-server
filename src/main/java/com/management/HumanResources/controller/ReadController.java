@@ -63,6 +63,7 @@ public class ReadController {
                 employeeTimeOff.setStart(timeOff.getStart());
                 employeeTimeOff.setEnd(timeOff.getEnd());
                 employeeTimeOff.setApproved(timeOff.isApproved());
+                employeeTimeOff.setReviewed(timeOff.isReviewed());
                 employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
                 employeeTimeOffs.add(employeeTimeOff);
             }
