@@ -5,21 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.model.*;
 
-import java.util.Map;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ParseService {
-
-    @Autowired private FirebaseDao firebase;
 
     public List<Employee> jsonToEmployeeList(String json) {
         JSONObject jsonList = new JSONObject(json);
@@ -78,6 +71,9 @@ public class ParseService {
         String[] employeeTimeOffCsvs = psv.split("\\|");
         List<TimeOff> timeOffs = new ArrayList<TimeOff>();
         for (String employeeTimeOffCsv : employeeTimeOffCsvs) {
+            if(employeeTimeOffCsv.equals("null")){
+                return new ArrayList<>();
+            }
             timeOffs.add(csvToEmployeeTimeOff(employeeTimeOffCsv));
         }
         return timeOffs;
@@ -99,5 +95,24 @@ public class ParseService {
         }
         
         return timeOff;
+    }
+
+    public String timeOffToCSV(List<TimeOff> timeOff) {
+        if(timeOff.isEmpty()){
+            return "null";
+        }
+        StringBuilder csv = new StringBuilder();
+        timeOff.forEach(obj -> csv.append(csvGenerator(obj.getStart().toString(), obj.getEnd().toString(), String.valueOf(obj.isApproved())) + "|"));
+        csv.deleteCharAt(csv.length()-1); //To remove last pipe
+        return csv.toString();
+    }
+
+    public String csvGenerator(String ...stringArr) {
+        StringBuilder result = new StringBuilder();
+        for (String item : stringArr){
+            result.append(item + ",");
+        }
+        result.deleteCharAt(result.length()-1); //To remove last comma
+        return result.toString();
     }
 }

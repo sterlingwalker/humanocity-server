@@ -51,10 +51,10 @@ public class FirebaseDao extends Dao {
     }
   
     public String updateEmployeeTime(EmployeeTime employeeTime) {
-        return patchSingleObject(String.class, "/time/{employeeId}.json", employeeTime, employeeTime.getEmployeeId());
+        return patchSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toDatabaseString(), employeeTime.getEmployeeId());
     }
   
     public String addEmployeeTime(EmployeeTime employeeTime) {
-        return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime, employeeTime.getEmployeeId());
+        return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toDatabaseString(), employeeTime.getEmployeeId());
     }
 }
