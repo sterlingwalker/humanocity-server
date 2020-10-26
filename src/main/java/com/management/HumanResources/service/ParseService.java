@@ -30,8 +30,8 @@ public class ParseService {
         emp.setPosition(obj.getString("position"));
         emp.setSalary(obj.getInt("salary"));
         emp.setDept(obj.getString("dept"));
-        emp.setManagerID(Long.parseLong(obj.getString("managerID")));
-        emp.setId(Long.parseLong(obj.getString("id")));
+        emp.setManagerID(obj.getLong("managerID"));
+        emp.setId(obj.getLong("id"));
         emp.setAddress(jsonToAddress(obj.getJSONObject("address")));
         return emp;
     }
