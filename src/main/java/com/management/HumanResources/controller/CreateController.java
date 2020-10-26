@@ -28,7 +28,7 @@ public class CreateController {
     public ResponseEntity<String> addNewEmployee(@RequestBody Employee employee) {
         boolean success = createService.createNewEmployee(employee);
         if (success) {
-            createService.initializeDefaultTime(employee);
+            createService.initDefaultEmployeeTime(employee);
             return ResponseEntity.status(HttpStatus.CREATED).body("Employee added");
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to add employee");

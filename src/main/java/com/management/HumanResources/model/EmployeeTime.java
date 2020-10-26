@@ -20,7 +20,7 @@ public class EmployeeTime {
     private String csvTimeOff;
     private String csvAvailability;
 
-    public String toDatabaseString() {
+    public String toJson() {
         JSONObject obj = new JSONObject();
         obj.put("employeeId", employeeId);
         obj.put("hoursRemaining", hoursRemaining);

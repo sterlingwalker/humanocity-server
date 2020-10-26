@@ -22,28 +22,28 @@ public class CreateService {
 
     public boolean createNewEmployee(Employee employee) {
         Random r = new Random();
-        long number = (long)(r.nextDouble()*(Math.pow(10, 10)));
-        if(uniqueInfo(number, employee)) {
-            employee.setId(number);
+        long futureId = (long)(r.nextDouble()*(Math.pow(10, 10)));
+        if(isUniqueFutureEmployee(futureId, employee)) {
+            employee.setId(futureId);
             firebase.addEmployee(employee);
             return true;
         }
         return false;
     }
 
-    public boolean uniqueInfo(long id, Employee emp) {
+    public boolean isUniqueFutureEmployee(long id, Employee emp) {
         List<Employee> allEmployees = parseService.jsonToEmployeeList(firebase.getAllEmployees());
         return allEmployees.stream().anyMatch(employee -> employee.getId() != id &&
-         !employee.uniqueData().equals(emp.uniqueData()));
+         !employee.getUniqueData().equals(emp.getUniqueData()));
 
     }
 
-    public void initializeDefaultTime(Employee emp) {
+    public void initDefaultEmployeeTime(Employee emp) {
         EmployeeTime time = new EmployeeTime();
         time.setTotalHours(INITIAL_TIME_OFF);
         time.setHoursRemaining(INITIAL_TIME_OFF);
         time.setEmployeeId(emp.getId());
-        time.setCsvTimeOff(parseService.timeOffToCSV(new ArrayList<>()));
+        time.setCsvTimeOff(parseService.timeOffToCsv(new ArrayList<>()));
         time.setCsvAvailability(DEFAULT_AVAILABILITY);
         firebase.addEmployeeTime(time);
     }
