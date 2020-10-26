@@ -19,4 +19,8 @@ public class Employee {
     private long managerID;
     private String dept;
 
+    public String getUniqueData() {
+        return (new String(firstName+lastName+email)).toLowerCase();
+    }
+
 }

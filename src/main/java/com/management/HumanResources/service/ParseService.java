@@ -4,22 +4,16 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.model.*;
 
-import java.util.Map;
-
-import org.json.JSONArray;
 import org.json.JSONObject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ParseService {
-
-    @Autowired private FirebaseDao firebase;
 
     public List<Employee> jsonToEmployeeList(String json) {
         JSONObject jsonList = new JSONObject(json);
@@ -37,8 +31,8 @@ public class ParseService {
         emp.setPosition(obj.getString("position"));
         emp.setSalary(obj.getInt("salary"));
         emp.setDept(obj.getString("dept"));
-        emp.setManagerID(Long.parseLong(obj.getString("managerID")));
-        emp.setId(Long.parseLong(obj.getString("id")));
+        emp.setManagerID(obj.getLong("managerID"));
+        emp.setId(obj.getLong("id"));
         emp.setAddress(jsonToAddress(obj.getJSONObject("address")));
         return emp;
     }
@@ -75,6 +69,9 @@ public class ParseService {
     }
 
     public List<TimeOff> psvToEmployeeTimeOffsList(String psv) { // PSV = Pipe | separated value I guess...
+        if(psv.equals("null")){
+            return new ArrayList<>();
+        }
         String[] employeeTimeOffCsvs = psv.split("\\|");
         List<TimeOff> timeOffs = new ArrayList<TimeOff>();
         for (String employeeTimeOffCsv : employeeTimeOffCsvs) {
@@ -99,5 +96,18 @@ public class ParseService {
         }
         
         return timeOff;
+    }
+
+    public String timeOffToCsv(List<TimeOff> timeOff) {
+        if(timeOff.isEmpty()){
+            return "null";
+        }
+        return timeOff.stream()
+                      .map(to -> csvGenerator(to.getStart().toString(), to.getEnd().toString(), String.valueOf(to.isApproved())))
+                      .collect(Collectors.joining("|"));
+    }
+
+    public String csvGenerator(String ...stringArr) {
+        return String.join(",", stringArr);
     }
 }
