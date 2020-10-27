@@ -60,6 +60,6 @@ public class FirebaseDao extends Dao {
     }
 
     public String getFeedback(Feedback feedback) {
-        return putSingleObject(String.class, "/feedback/{employeeId}.json", feedback.feedbackData(), feedback.getFeedbackId());
+        return putSingleObject(String.class, "/feedback/{employeeId}.json", feedback, feedback.getFeedbackId());
     }
 }
