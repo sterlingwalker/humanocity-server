@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import com.management.HumanResources.model.Employee;
 import com.management.HumanResources.model.EmployeeTime;
+import com.management.HumanResources.model.Feedback;
 import com.management.HumanResources.model.TimeOff;
 
 import org.springframework.stereotype.Repository;
@@ -56,5 +57,9 @@ public class FirebaseDao extends Dao {
   
     public String addEmployeeTime(EmployeeTime employeeTime) {
         return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toJson(), employeeTime.getEmployeeId());
+    }
+
+    public String getFeedback(Feedback feedback) {
+        return putSingleObject(String.class, "/feedback/{employeeId}.json", feedback, feedback.getFeedbackId());
     }
 }
