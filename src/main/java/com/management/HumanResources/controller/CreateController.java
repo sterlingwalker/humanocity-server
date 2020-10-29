@@ -35,4 +35,14 @@ public class CreateController {
         }
     }
 
+    @PostMapping(path = "/new/feedback")
+    public ResponseEntity<String> addNewFeedback(@RequestBody Feedback feedback) {
+        boolean success = createService.enterNewFeedback(feedback);
+        if (success) {
+            return ResponseEntity.status(HttpStatus.CREATED).body("Feedback added");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to add feedback");
+        }
+    }
+
 }

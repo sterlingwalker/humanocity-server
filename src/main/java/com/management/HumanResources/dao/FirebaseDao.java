@@ -59,7 +59,7 @@ public class FirebaseDao extends Dao {
         return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toJson(), employeeTime.getEmployeeId());
     }
 
-    public String getFeedback(Feedback feedback) {
+    public String addFeedback(Feedback feedback) {
         return putSingleObject(String.class, "/feedback/{employeeId}.json", feedback, feedback.getId());
     }
 }

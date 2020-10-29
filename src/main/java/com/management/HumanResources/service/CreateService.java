@@ -7,6 +7,7 @@ import java.util.Random;
 import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.model.Employee;
 import com.management.HumanResources.model.EmployeeTime;
+import com.management.HumanResources.model.Feedback;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,14 @@ public class CreateService {
         time.setCsvTimeOff(parseService.timeOffToCsv(new ArrayList<>()));
         time.setCsvAvailability(DEFAULT_AVAILABILITY);
         firebase.addEmployeeTime(time);
+    }
+
+    public boolean enterNewFeedback(Feedback feedback) {
+        if(feedback.getId() == 0){
+            return false;
+        }
+        firebase.addFeedback(feedback);
+        return true;
     }
 
 }
