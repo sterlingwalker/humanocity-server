@@ -2,6 +2,9 @@ package com.management.HumanResources.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 
 @Data
@@ -19,6 +22,7 @@ public class Employee {
     private long managerID;
     private String dept;
 
+    @JsonIgnore
     public String getUniqueData() {
         return (new String(firstName+lastName+email)).toLowerCase();
     }
