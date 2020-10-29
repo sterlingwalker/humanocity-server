@@ -33,7 +33,8 @@ public class CreateService {
     public boolean isUniqueFutureEmployee(long id, Employee emp) {
         List<Employee> allEmployees = parseService.jsonToEmployeeList(firebase.getAllEmployees());
         return allEmployees.stream().anyMatch(employee -> employee.getId() != id &&
-         !employee.getUniqueData().equals(emp.getUniqueData()));
+         !employee.getUniqueData().equals(emp.getUniqueData()) &&
+         employee.getManagerID() != 1000000000);
 
     }
 
