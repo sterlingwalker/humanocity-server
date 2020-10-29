@@ -5,9 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.management.HumanResources.dao.FirebaseDao;
-import com.management.HumanResources.model.Employee;
-import com.management.HumanResources.model.EmployeeTime;
-import com.management.HumanResources.model.Feedback;
+import com.management.HumanResources.model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

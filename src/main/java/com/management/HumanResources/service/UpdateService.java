@@ -19,6 +19,9 @@ public class UpdateService {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Employee ID invalid");
         }
         Employee master = firebase.getEmployee(updatedEmployee.getId());
+        if(master == null) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee not found");
+        }
         master.merge(updatedEmployee);
         firebase.updateEmployee(master);
         return ResponseEntity.status(HttpStatus.OK).body("Employee Updated");
