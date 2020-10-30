@@ -49,13 +49,9 @@ public class ScheduleService {
 
         List<ScheduleEntry> scheduleEntries = new ArrayList<>();
 
-        // Convert to a map to make it more efficient to get by employeeId later.
-        Map<Long, ScheduleEntry> baseScheduleEntries = getBaseSchedule()
-            .stream().collect(Collectors.toMap(ScheduleEntry::getEmployeeId, item -> item));
-
         for (EmployeeTime employeeTime : readController.getEmployeeTimes()) {
             System.out.println("Employee ID: " + employeeTime.getEmployeeId());
-            String[] employeeAvailability = baseScheduleEntries.get(employeeTime.getEmployeeId()).getAvailability();
+            String[] employeeAvailability = employeeTime.getAvailability();
             List<TimeOff> employeeTimeOffs = employeeTime.getTimeOffs()
                 .stream().filter(timeOff -> timeOff.isApproved() && isTimeOffInWeek(timeOff, monday)).collect(Collectors.toList());
             
@@ -71,7 +67,8 @@ public class ScheduleService {
                     if (!sameDayAvailability.toLowerCase().equals("null")) {
                         String[] sameDayAvailabilityRange = sameDayAvailability.split("-");
 
-                        // "ha" means hour(1-12) that is directly followed by AM/PM marker (e.g 5PM) https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+                        // "ha" means an hour(1-12) that is directly followed by an AM/PM marker (e.g 5PM)
+                        // More info here: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
                         int availabilityStartHour = LocalTime.parse(sameDayAvailabilityRange[0], DateTimeFormatter.ofPattern("ha")).getHour();
                         int availabilityEndHour = LocalTime.parse(sameDayAvailabilityRange[1], DateTimeFormatter.ofPattern("ha")).getHour();
                         System.out.println("Original availability: " + availabilityStartHour + " " + availabilityEndHour);
