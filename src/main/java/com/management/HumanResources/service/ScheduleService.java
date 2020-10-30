@@ -43,9 +43,13 @@ public class ScheduleService {
      * @throws Exception
      */
     public List<ScheduleEntry> getSchedule(LocalDate monday) throws Exception {
-        if(!monday.getDayOfWeek().equals(DayOfWeek.MONDAY))
+        if (!monday.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
             throw new Exception(monday + " is not a Monday.");
+        }
+
         List<ScheduleEntry> scheduleEntries = new ArrayList<>();
+
+        // Convert to a map to make it more efficient to get by employeeId later.
         Map<Long, ScheduleEntry> baseScheduleEntries = getBaseSchedule()
             .stream().collect(Collectors.toMap(ScheduleEntry::getEmployeeId, item -> item));
 
@@ -64,14 +68,14 @@ public class ScheduleService {
                     System.out.println("Same day availability: " + sameDayAvailability);
 
                     // Check if the employee is available the day of the time off:
-                    if (!sameDayAvailability.toLowerCase().equals("null"))
-                    {
+                    if (!sameDayAvailability.toLowerCase().equals("null")) {
                         String[] sameDayAvailabilityRange = sameDayAvailability.split("-");
 
                         // "ha" means hour(1-12) that is directly followed by AM/PM marker (e.g 5PM) https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
                         int availabilityStartHour = LocalTime.parse(sameDayAvailabilityRange[0], DateTimeFormatter.ofPattern("ha")).getHour();
                         int availabilityEndHour = LocalTime.parse(sameDayAvailabilityRange[1], DateTimeFormatter.ofPattern("ha")).getHour();
                         System.out.println("Original availability: " + availabilityStartHour + " " + availabilityEndHour);
+                        
                         if(timeOff.getStart().getHour() == availabilityStartHour) {
                             availabilityStartHour = timeOff.getEnd().getHour();
                         }
@@ -81,8 +85,7 @@ public class ScheduleService {
                         else {
                             System.out.println("That would be too much to implement exception...");
                         }
-                        employeeAvailability[dayOfWeek] = 
-                            hourToAmPmString(availabilityStartHour) + "-" + hourToAmPmString(availabilityEndHour);
+                        employeeAvailability[dayOfWeek] = hourToAmPmString(availabilityStartHour) + "-" + hourToAmPmString(availabilityEndHour);
                     }
                 }
                 else {
