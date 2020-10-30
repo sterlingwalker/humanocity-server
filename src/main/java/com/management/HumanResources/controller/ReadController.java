@@ -1,19 +1,15 @@
 package com.management.HumanResources.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.*;
+import java.util.*;
 
 import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.model.*;
-import com.management.HumanResources.service.ParseService;
+import com.management.HumanResources.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/v1")
@@ -21,6 +17,7 @@ public class ReadController {
 
     @Autowired private FirebaseDao firebase;
     @Autowired private ParseService parseService;
+    @Autowired private ScheduleService scheduleService;
 
     @GetMapping(path = "/employees")
     public List<Employee> getEmployees() {
@@ -43,18 +40,15 @@ public class ReadController {
     }
 
     @GetMapping(path = "/schedule")
-    public List<ScheduleEntry> getSchedule() {
-        List<EmployeeTime> employeeTimes = getEmployeeTimes();
-        List<ScheduleEntry> scheduleEntries = new ArrayList<>();
+    @ExceptionHandler({ Exception.class }) // TODO: Create a NotMondayException https://www.baeldung.com/exception-handling-for-rest-with-spring
+    public List<ScheduleEntry> getSchedule(@RequestParam("monday")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate monday)
+        throws Exception { // Date format: yyyy-MM-dd (e.g 2020-11-02)
+        return scheduleService.getSchedule(monday);
+    }
 
-        for (EmployeeTime employeeTime : employeeTimes) {
-            ScheduleEntry employeeTimeOff = new ScheduleEntry();
-            employeeTimeOff.setAvailability(employeeTime.getAvailability());
-            employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
-            scheduleEntries.add(employeeTimeOff);
-        }
-
-        return scheduleEntries;
+    @GetMapping(path = "/baseSchedule")
+    public List<ScheduleEntry> getBaseSchedule() {
+        return scheduleService.getBaseSchedule();
     }
 
     @GetMapping(path = "/timeoffs")
@@ -64,13 +58,16 @@ public class ReadController {
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
-                EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
-                employeeTimeOff.setStart(timeOff.getStart());
-                employeeTimeOff.setEnd(timeOff.getEnd());
-                employeeTimeOff.setApproved(timeOff.isApproved());
-                employeeTimeOff.setReviewed(timeOff.isReviewed());
-                employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
-                employeeTimeOffs.add(employeeTimeOff);
+                // If the time off ends in the future. i.e. if it has not expired.
+                if (timeOff.getEnd().compareTo(LocalDateTime.now()) > 0) {
+                    EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
+                    employeeTimeOff.setStart(timeOff.getStart());
+                    employeeTimeOff.setEnd(timeOff.getEnd());
+                    employeeTimeOff.setApproved(timeOff.isApproved());
+                    employeeTimeOff.setReviewed(timeOff.isReviewed());
+                    employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
+                    employeeTimeOffs.add(employeeTimeOff);
+                }
             }
         }
 

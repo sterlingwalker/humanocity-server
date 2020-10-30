@@ -1,7 +1,6 @@
 package com.management.HumanResources.service;
 
 import java.time.*;
-import java.time.temporal.ChronoUnit;
 
 import com.management.HumanResources.model.*;
 
@@ -39,15 +38,12 @@ public class TimeOffService {
      * Gets the real number of hours for the time off.
      */
     public double getRealNumberOfTimeOffHours(TimeOff timeOff) {
-
-        Instant startDay = timeOff.getStart().toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);
-        Instant endDay = timeOff.getEnd().toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);
         
         // If the time off is one day or less...
-        if (startDay.equals(endDay)) {
+        if (timeOff.isSameDay()) {
             return Math.min(getNumberOfTimeOffHours(timeOff), DAILY_WORK_HOURS); // Return at most DAILY_HOURS.
         }
-        return Math.round(getNumberOfTimeOffDays(timeOff) * (DAILY_WORK_HOURS / 7.0)) * 24; // Good for now...
+        return Math.round(getNumberOfTimeOffDays(timeOff) * (WEEKLY_WORK_DAYS / 7.0)) * 24; // Good for now...
     }
 
     /**
