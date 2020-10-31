@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class ScheduleEntry {
     private long employeeId;
-    private String[] availability;
+    private String[] availability; // String[] because that is what is sent to the client.
 
     public void setAvailability(DailyAvailability[] availability) {
         // Convert DailyAvailability[] to String[]
