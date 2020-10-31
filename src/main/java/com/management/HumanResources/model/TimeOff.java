@@ -1,7 +1,8 @@
 package com.management.HumanResources.model;
 
 import java.time.*;
-import java.time.temporal.ChronoUnit;
+import java.time.temporal.*;
+import java.util.Locale;
 
 import lombok.Data;
 
@@ -18,6 +19,21 @@ public class TimeOff {
         return startDay.equals(endDay);
     }
 
+    /**
+     * Return true if the time off start and end are in the correct order and on the same week.
+     */
+	public boolean isLegal() {
+        TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
+        return start.compareTo(end) <= 0 && start.get(weekOfYear) * start.getYear() == end.get(weekOfYear) * end.getYear();
+    }
+
+    /**
+     * Return true if the time off is not expired.
+     */
+	public boolean isValid() {
+		return getEnd().compareTo(LocalDateTime.now()) > 0;
+    }
+    
     @Override
     public String toString() { // Helpful in debugging.
         return getStart() + " to " + getEnd();

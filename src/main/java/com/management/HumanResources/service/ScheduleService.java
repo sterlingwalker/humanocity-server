@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import com.management.HumanResources.controller.ReadController;
+import com.management.HumanResources.exceptions.NotMondayException;
 import com.management.HumanResources.model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,11 +42,11 @@ public class ScheduleService {
      * based on the employee approved time off requests for all employees.
      * 
      * @param monday Monday of the requested week
-     * @throws Exception
+     * @throws NotMondayException
      */
-    public List<ScheduleEntry> getSchedule(LocalDate monday) throws Exception {
+    public List<ScheduleEntry> getSchedule(LocalDate monday) throws NotMondayException {
         if (!monday.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
-            throw new Exception(monday + " is not a Monday.");
+            throw new NotMondayException(monday);
         }
 
         List<ScheduleEntry> scheduleEntries = new ArrayList<>();
@@ -60,11 +61,11 @@ public class ScheduleService {
      * based on the employee approved time off requests for a specific employee.
      * 
      * @param monday Monday of the requested week
-     * @throws Exception
+     * @throws NotMondayException
      */
-    public ScheduleEntry getEmployeeSchedule(LocalDate monday, EmployeeTime employeeTime) throws Exception {
+    public ScheduleEntry getEmployeeSchedule(LocalDate monday, EmployeeTime employeeTime) throws NotMondayException {
         if (!monday.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
-            throw new Exception(monday + " is not a Monday.");
+            throw new NotMondayException(monday);
         }
         
         DailyAvailability[] employeeAvailability = employeeTime.getAvailability();

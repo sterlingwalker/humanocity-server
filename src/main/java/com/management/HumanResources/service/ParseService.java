@@ -69,7 +69,8 @@ public class ParseService {
 
         // Check if employee daily availabilities were provided for all 7 week days.
         if (dailyAvailabilityStrings.length != daysPerWeek) {
-            // TODO: Throw custom exception.
+            throw new IllegalArgumentException("Invalid employee availability. All seven days of the must be given. "
+                + dailyAvailabilityStrings.length + " were given.");
         }
 
         DailyAvailability[] dailyAvailabilities = new DailyAvailability[daysPerWeek];
@@ -95,6 +96,11 @@ public class ParseService {
 
             dailyAvailability.setStart(availabilityStartHour);
             dailyAvailability.setEnd(availabilityEndHour);
+            if (!dailyAvailability.isLegal()) {
+                throw new IllegalArgumentException("Illegal daily employee availability. "
+                + "Availability start time must be before the end time. " 
+                + dailyAvailability + " was given.");
+            }
         }
         
         return dailyAvailability;

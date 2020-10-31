@@ -14,6 +14,13 @@ public class DailyAvailability {
         return start == 0 && end == 0;
     }
 
+    /**
+     * Return true if the time off start and end are in the correct order and on the same week.
+     */
+	public boolean isLegal() {
+        return isOff() || start < end;
+    }
+
     @Override
     public String toString() {
         if (isOff())
