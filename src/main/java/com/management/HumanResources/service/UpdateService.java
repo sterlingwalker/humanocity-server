@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 public class UpdateService {
 
     @Autowired private FirebaseDao firebase;
-    @Autowired private TimeOffService timeOffService;
 
     public ResponseEntity<String> updateEmployeeInfo(Employee updatedEmployee) {
         if (updatedEmployee.getId()==0) {

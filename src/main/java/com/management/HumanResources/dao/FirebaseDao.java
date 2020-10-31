@@ -1,13 +1,8 @@
 package com.management.HumanResources.dao;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
-import com.management.HumanResources.model.Employee;
-import com.management.HumanResources.model.EmployeeTime;
-import com.management.HumanResources.model.Feedback;
-import com.management.HumanResources.model.TimeOff;
+import com.management.HumanResources.model.*;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Value;

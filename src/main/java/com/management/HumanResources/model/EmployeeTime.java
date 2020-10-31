@@ -16,7 +16,7 @@ public class EmployeeTime {
     private double hoursRemaining;
     private double totalHours;
     private List<TimeOff> timeOffs;
-    private String[] availability;
+    private DailyAvailability[] availability;
     private String csvTimeOff;
     private String csvAvailability;
 

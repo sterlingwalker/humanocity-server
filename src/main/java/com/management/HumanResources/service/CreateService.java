@@ -17,7 +17,6 @@ public class CreateService {
 
     @Autowired private FirebaseDao firebase;
     @Autowired private ParseService parseService;
-    @Autowired private TimeOffService timeOffService;
 
     public boolean createNewEmployee(Employee employee) {
         Random r = new Random();
