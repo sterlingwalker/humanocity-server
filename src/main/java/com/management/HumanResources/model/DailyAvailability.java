@@ -8,8 +8,6 @@ public class DailyAvailability {
     private int start;
     private int end;
 
-    // TODO: Custom setters with checks for validity
-
     public boolean isOff() {
         return start == 0 && end == 0;
     }
