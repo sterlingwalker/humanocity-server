@@ -21,7 +21,7 @@ public class ReadController {
 
     @GetMapping(path = "/employees")
     public List<Employee> getEmployees() {
-        return parseService.jsonToEmployeeList(firebase.getAllEmployees()); //Need to parse for all employees due to the structure of firebase
+        return parseService.jsonToEmployeeList(firebase.getAllEmployees());
     }
 
     @GetMapping(path = "/employee/{id}")

@@ -5,8 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.management.HumanResources.dao.FirebaseDao;
-import com.management.HumanResources.model.Employee;
-import com.management.HumanResources.model.EmployeeTime;
+import com.management.HumanResources.model.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,8 @@ public class CreateService {
     public boolean isUniqueFutureEmployee(long id, Employee emp) {
         List<Employee> allEmployees = parseService.jsonToEmployeeList(firebase.getAllEmployees());
         return allEmployees.stream().anyMatch(employee -> employee.getId() != id &&
-         !employee.getUniqueData().equals(emp.getUniqueData()));
+         !employee.getUniqueData().equals(emp.getUniqueData()) &&
+         employee.getManagerID() != 1000000000);
 
     }
 
@@ -46,6 +46,16 @@ public class CreateService {
         time.setCsvTimeOff(parseService.timeOffToCsv(new ArrayList<>()));
         time.setCsvAvailability(DEFAULT_AVAILABILITY);
         firebase.addEmployeeTime(time);
+    }
+
+    public boolean enterNewFeedback(Feedback feedback) {
+        if(feedback.getEmployeeId() == 0){
+            return false;
+        }
+        Random rand = new Random(System.currentTimeMillis()); //Time based to ensure a unique id is created
+        feedback.setFeedbackId((long)(rand.nextDouble()*(Math.pow(10, 10))));
+        firebase.addFeedback(feedback);
+        return true;
     }
 
 }
