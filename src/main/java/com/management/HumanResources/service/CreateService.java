@@ -49,9 +49,11 @@ public class CreateService {
     }
 
     public boolean enterNewFeedback(Feedback feedback) {
-        if(feedback.getId() == 0){
+        if(feedback.getEmployeeId() == 0){
             return false;
         }
+        Random rand = new Random(System.currentTimeMillis()); //Time based to ensure a unique id is created
+        feedback.setFeedbackId((long)(rand.nextDouble()*(Math.pow(10, 10))));
         firebase.addFeedback(feedback);
         return true;
     }
