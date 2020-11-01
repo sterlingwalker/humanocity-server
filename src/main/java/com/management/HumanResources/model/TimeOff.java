@@ -13,6 +13,20 @@ public class TimeOff {
     private boolean approved;
     private boolean reviewed;
 
+    /**
+     * Returns the zero-based time off start day of the week where zero is Monday.
+     */
+    public int getStartDayOfWeek() {
+        return start.getDayOfWeek().getValue() - 1; // -1 because Mon = 1 and is the first day of the week.
+    }
+
+    /**
+     * Returns the zero-based time off end day of the week where zero is Monday.
+     */
+    public int getEndDayOfWeek() {
+        return end.getDayOfWeek().getValue() - 1; // -1 because Mon = 1 and is the first day of the week.
+    }
+
     public boolean isSameDay() {
         Instant startDay = start.toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);
         Instant endDay = end.toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);

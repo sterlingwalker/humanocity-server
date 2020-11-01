@@ -74,10 +74,7 @@ public class ScheduleService {
         
         for (TimeOff timeOff : employeeTimeOffs) {
             if (timeOff.isSameDay()) {
-                // -1 because Mon = 1 and is the first day of the week.
-                int dayOfWeek = timeOff.getStart().getDayOfWeek().getValue() - 1;
-                DailyAvailability sameDayAvailability = employeeAvailability[dayOfWeek];
-
+                DailyAvailability sameDayAvailability = employeeAvailability[timeOff.getStartDayOfWeek()];
                 if (!sameDayAvailability.isOff()) {
                     if(timeOff.getStart().getHour() == sameDayAvailability.getStart()) {
                         sameDayAvailability.setStart(timeOff.getEnd().getHour());
@@ -88,13 +85,10 @@ public class ScheduleService {
                 }
             }
             else {
-                // Note: Java week starts on Monday (index 1) and ends on Sunday (index 7).
-
-                // For timeOff end we need to take off one day because if the time off ends on next monday,
-                // the index would be 1 and the loop will not run.
-                for (int i = timeOff.getStart().getDayOfWeek().getValue(); 
-                    i <= timeOff.getEnd().plusDays(-1).getDayOfWeek().getValue(); i++) {
-                    employeeAvailability[i - 1] = new DailyAvailability();
+                // For time off end we need to take off one day because if the time off ends on next monday,
+                // the index would be 0 and the loop will not run. Modulo 7 will wrap -1 to 6 which corresponds to Sunday.
+                for (int i = timeOff.getStartDayOfWeek(); i <= (timeOff.getEndDayOfWeek() - 1) % 7; i++) {
+                    employeeAvailability[i] = new DailyAvailability();
                 }
             }
         }
