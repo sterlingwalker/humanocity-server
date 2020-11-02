@@ -41,13 +41,26 @@ public class TimeOff {
     }
 
     public boolean isStartBeforeEnd() {
-        return start.compareTo(end) <= 0;
+        return start.compareTo(end) < 0;
     }
 
+    /**
+     * Returns true if the time off is at most Monday to next Monday 12am.
+     */
     public boolean isSameWeek() {
-        final TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
-        return start.get(weekOfYear) * start.getYear() == end.get(weekOfYear) * end.getYear()
-            || (end.getDayOfWeek().equals(DayOfWeek.MONDAY) && end.getHour() == 0 && end.getMinute() == 0);
+        if (isSameDay()) {
+            return true;
+        }
+
+        if (end.getDayOfWeek().equals(DayOfWeek.MONDAY) && (end.getHour() != 0 || end.getMinute() != 0)) {
+            return false;
+        }
+
+        TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
+        LocalDateTime almostEnd = end.minusSeconds(1); // Would bring Monday back to Sunday if end == Monday 12am.
+
+        // Since weeks of year are cyclical, we need to check also the day difference between the time off start and end.
+        return start.get(weekOfYear) == almostEnd.get(weekOfYear) && start.until(almostEnd, ChronoUnit.DAYS) <= 7;
     }
 
     public boolean isFullDays() {
