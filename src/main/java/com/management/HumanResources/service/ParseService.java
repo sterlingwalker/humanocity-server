@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import com.management.HumanResources.exceptions.*;
 import com.management.HumanResources.model.*;
 
 import org.json.JSONObject;
@@ -69,8 +70,7 @@ public class ParseService {
 
         // Check if employee daily availabilities were provided for all 7 week days.
         if (dailyAvailabilityStrings.length != daysPerWeek) {
-            throw new IllegalArgumentException("Invalid employee availability. All seven days of the must be given. "
-                + dailyAvailabilityStrings.length + " were given.");
+            throw new InvalidEmployeeAvailabilityNotSevenDaysException(dailyAvailabilityStrings.length);
         }
 
         DailyAvailability[] dailyAvailabilities = new DailyAvailability[daysPerWeek];
@@ -97,9 +97,7 @@ public class ParseService {
             dailyAvailability.setStart(availabilityStartHour);
             dailyAvailability.setEnd(availabilityEndHour);
             if (!dailyAvailability.isLegal()) {
-                throw new IllegalArgumentException("Illegal daily employee availability. "
-                + "Availability start time must be before the end time. " 
-                + dailyAvailability + " was given.");
+                throw new InvalidEmployeeAvailabilityStartAfterEndException(dailyAvailability);
             }
         }
         

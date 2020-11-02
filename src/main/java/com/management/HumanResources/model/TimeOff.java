@@ -36,16 +36,36 @@ public class TimeOff {
     /**
      * Return true if the time off start and end are in the correct order and on the same week.
      */
-	public boolean isLegal() {
-        TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
-        return start.compareTo(end) <= 0 && start.get(weekOfYear) * start.getYear() == end.get(weekOfYear) * end.getYear();
+	public boolean isValid() {
+        return isStartBeforeEnd() && isSameWeek();
+    }
+
+    public boolean isStartBeforeEnd() {
+        return start.compareTo(end) <= 0;
+    }
+
+    public boolean isSameWeek() {
+        final TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
+        return start.get(weekOfYear) * start.getYear() == end.get(weekOfYear) * end.getYear()
+            || (end.getDayOfWeek().equals(DayOfWeek.MONDAY) && end.getHour() == 0 && end.getMinute() == 0);
+    }
+
+    public boolean isFullDays() {
+        return start.getHour() == 0 && start.getMinute() == 0 && end.getHour() == 0 && end.getMinute() == 0;
     }
 
     /**
-     * Return true if the time off is not expired.
+     * Return true if the time off is expired.
      */
-	public boolean isValid() {
-		return getEnd().compareTo(LocalDateTime.now()) > 0;
+	public boolean isExpired() {
+		return getEnd().compareTo(LocalDateTime.now()) < 0;
+    }
+
+    /**
+     * Return the Monday of the time off week.
+     */
+    public LocalDate getMonday() {
+        return start.toLocalDate().with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
     }
     
     @Override

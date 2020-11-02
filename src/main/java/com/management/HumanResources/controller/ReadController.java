@@ -64,8 +64,7 @@ public class ReadController {
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
-                // If the time off ends in the future. i.e. if it has not expired.
-                if (timeOff.isValid()) {
+                if (!timeOff.isExpired()) {
                     EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
                     employeeTimeOff.setStart(timeOff.getStart());
                     employeeTimeOff.setEnd(timeOff.getEnd());

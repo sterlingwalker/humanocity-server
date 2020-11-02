@@ -19,6 +19,13 @@ public class DailyAvailability {
         return isOff() || start < end;
     }
 
+    /**
+     * Returns the number of availability hours.
+     */
+    public int getHours() {
+        return end - start;
+    }
+
     @Override
     public String toString() {
         if (isOff())
