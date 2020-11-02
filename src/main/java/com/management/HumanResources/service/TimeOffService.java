@@ -28,20 +28,19 @@ public class TimeOffService {
     }
 
     /**
-     * Checks if a time off is valid for an employee and throws an exception if
-     * invalid.
+     * Checks if a time off is valid for an employee and throws an exception if invalid.
      * 
      * @throws InvalidTimeOffException
      */
     public void validateTimeOffForEmployee(TimeOff timeOff, EmployeeTime employeeTime) throws InvalidTimeOffException {
         
         // Check if the time off start and end are in the correct order.
-        if (timeOff.isStartBeforeEnd()) {
+        if (!timeOff.isStartBeforeEnd()) {
             throw new InvalidTimeOffStartAfterEndException();
         }
 
         // Check if the time off start and end are on the same week.
-        if (timeOff.isSameWeek()) {
+        if (!timeOff.isSameWeek()) {
             throw new InvalidTimeOffNotSameWeekException();
         }
 
@@ -53,7 +52,7 @@ public class TimeOffService {
                 throw new InvalidTimeOffStartEndException();
             }
         }
-        else if (timeOff.isFullDays()) { // Check start and end days (must start and end at 12am).
+        else if (!timeOff.isFullDays()) { // Check start and end days (must start and end at 12am).
             throw new InvalidTimeOffMultiDayRangeException();
         }
         
@@ -62,7 +61,7 @@ public class TimeOffService {
         }
 
         // Check if the employee has enough hours
-        if (employeeTime.getHoursRemaining() >= getNumberOfTimeOffHoursForEmployee(timeOff, employeeTime)) {
+        if (employeeTime.getHoursRemaining() < getNumberOfTimeOffHoursForEmployee(timeOff, employeeTime)) {
             throw new InvalidTimeOffNotEnoughRemainingHoursException();
         }
 
