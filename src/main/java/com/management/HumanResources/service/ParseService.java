@@ -1,11 +1,11 @@
 package com.management.HumanResources.service;
 
-import java.time.LocalDateTime;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
+import com.management.HumanResources.exceptions.*;
 import com.management.HumanResources.model.*;
 
 import org.json.JSONObject;
@@ -64,12 +64,48 @@ public class ParseService {
         return employeeTime;
     }
 
-    public String[] csvToEmployeeAvailabilityArray(String csv) {
-        return csv.split(",");
+    public DailyAvailability[] csvToEmployeeAvailabilityArray(String csv) {
+        final int daysPerWeek = 7;
+        String[] dailyAvailabilityStrings = csv.toUpperCase().split(",");
+
+        // Check if employee daily availabilities were provided for all 7 week days.
+        if (dailyAvailabilityStrings.length != daysPerWeek) {
+            throw new InvalidEmployeeAvailabilityNotSevenDaysException(dailyAvailabilityStrings.length);
+        }
+
+        DailyAvailability[] dailyAvailabilities = new DailyAvailability[daysPerWeek];
+        for (int i = 0; i < daysPerWeek; i++) {
+            dailyAvailabilities[i] = parseDailyAvailability(dailyAvailabilityStrings[i]);
+        }
+        
+        return dailyAvailabilities;
+    }
+
+    public DailyAvailability parseDailyAvailability(String dailyAvailabilityString) {
+        DailyAvailability dailyAvailability = new DailyAvailability();
+        
+        // If null, then the employee is off that day.
+        if (!dailyAvailabilityString.equals("NULL")) {
+            String[] dailyAvailabilityRange = dailyAvailabilityString.split("-");
+
+            // "ha" means an hour(1-12) that is directly followed by an AM/PM marker (e.g 5PM)
+            // More info here: https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ha");
+            int availabilityStartHour = LocalTime.parse(dailyAvailabilityRange[0], formatter).getHour();
+            int availabilityEndHour = LocalTime.parse(dailyAvailabilityRange[1], formatter).getHour();
+
+            dailyAvailability.setStart(availabilityStartHour);
+            dailyAvailability.setEnd(availabilityEndHour);
+            if (!dailyAvailability.isLegal()) {
+                throw new InvalidEmployeeAvailabilityStartAfterEndException(dailyAvailability);
+            }
+        }
+        
+        return dailyAvailability;
     }
 
     public List<TimeOff> psvToEmployeeTimeOffsList(String psv) { // PSV = Pipe | separated value I guess...
-        if(psv.equals("null")){
+        if (psv.equals("null")) {
             return new ArrayList<>();
         }
         String[] employeeTimeOffCsvs = psv.split("\\|");
@@ -89,8 +125,7 @@ public class ParseService {
         timeOff.setEnd(LocalDateTime.parse(employeeTimeOffTokens[1], formatter));
 
         String approvedToken = employeeTimeOffTokens[2];
-        if(!approvedToken.equals("null"))
-        {
+        if (!approvedToken.equals("null")) {
             timeOff.setReviewed(true);
             timeOff.setApproved(Boolean.parseBoolean(approvedToken));
         }
@@ -98,11 +133,11 @@ public class ParseService {
         return timeOff;
     }
 
-    public String timeOffToCsv(List<TimeOff> timeOff) {
-        if(timeOff.isEmpty()){
+    public String timeOffToCsv(List<TimeOff> timeOffs) {
+        if (timeOffs.isEmpty()) {
             return "null";
         }
-        return timeOff.stream()
+        return timeOffs.stream()
                       .map(to -> csvGenerator(to.getStart().toString(), to.getEnd().toString(), String.valueOf(to.isApproved())))
                       .collect(Collectors.joining("|"));
     }

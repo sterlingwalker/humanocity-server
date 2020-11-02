@@ -1,7 +1,8 @@
 package com.management.HumanResources.model;
 
 import java.time.*;
-import java.time.temporal.ChronoUnit;
+import java.time.temporal.*;
+import java.util.Locale;
 
 import lombok.Data;
 
@@ -12,12 +13,74 @@ public class TimeOff {
     private boolean approved;
     private boolean reviewed;
 
+    /**
+     * Returns the zero-based time off start day of the week where zero is Monday.
+     */
+    public int getStartDayOfWeek() {
+        return start.getDayOfWeek().getValue() - 1; // -1 because Mon = 1 and is the first day of the week.
+    }
+
+    /**
+     * Returns the zero-based time off end day of the week where zero is Monday.
+     */
+    public int getEndDayOfWeek() {
+        return end.getDayOfWeek().getValue() - 1; // -1 because Mon = 1 and is the first day of the week.
+    }
+
     public boolean isSameDay() {
         Instant startDay = start.toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);
         Instant endDay = end.toInstant(ZoneOffset.UTC).truncatedTo(ChronoUnit.DAYS);
         return startDay.equals(endDay);
     }
 
+    /**
+     * Return true if the time off start and end are in the correct order and on the same week.
+     */
+	public boolean isValid() {
+        return isStartBeforeEnd() && isSameWeek();
+    }
+
+    public boolean isStartBeforeEnd() {
+        return start.compareTo(end) < 0;
+    }
+
+    /**
+     * Returns true if the time off is at most Monday to next Monday 12am.
+     */
+    public boolean isSameWeek() {
+        if (isSameDay()) {
+            return true;
+        }
+
+        if (end.getDayOfWeek().equals(DayOfWeek.MONDAY) && (end.getHour() != 0 || end.getMinute() != 0)) {
+            return false;
+        }
+
+        TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
+        LocalDateTime almostEnd = end.minusSeconds(1); // Would bring Monday back to Sunday if end == Monday 12am.
+
+        // Since weeks of year are cyclical, we need to check also the day difference between the time off start and end.
+        return start.get(weekOfYear) == almostEnd.get(weekOfYear) && start.until(almostEnd, ChronoUnit.DAYS) <= 7;
+    }
+
+    public boolean isFullDays() {
+        return start.getHour() == 0 && start.getMinute() == 0 && end.getHour() == 0 && end.getMinute() == 0;
+    }
+
+    /**
+     * Return true if the time off is expired.
+     */
+	public boolean isExpired() {
+		return getEnd().compareTo(LocalDateTime.now()) < 0;
+    }
+
+    /**
+     * Return the Monday of the time off week.
+     */
+    public LocalDate getMonday() {
+        return start.toLocalDate().with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
+    }
+    
     @Override
     public String toString() { // Helpful in debugging.
         return getStart() + " to " + getEnd();

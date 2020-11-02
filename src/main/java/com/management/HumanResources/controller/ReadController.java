@@ -4,12 +4,15 @@ import java.time.*;
 import java.util.*;
 
 import com.management.HumanResources.dao.FirebaseDao;
+import com.management.HumanResources.exceptions.*;
 import com.management.HumanResources.model.*;
 import com.management.HumanResources.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping(value = "api/v1")
@@ -39,11 +42,14 @@ public class ReadController {
         return firebase.getEmployeeTime(id);
     }
 
-    @GetMapping(path = "/schedule")
-    @ExceptionHandler({ Exception.class }) // TODO: Create a NotMondayException https://www.baeldung.com/exception-handling-for-rest-with-spring
-    public List<ScheduleEntry> getSchedule(@RequestParam("monday")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate monday)
-        throws Exception { // Date format: yyyy-MM-dd (e.g 2020-11-02)
-        return scheduleService.getSchedule(monday);
+    @GetMapping(path = "/schedule") // Date format: yyyy-MM-dd (e.g 2020-11-02)
+    public List<ScheduleEntry> getSchedule(@RequestParam("monday") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate monday) {
+        try {
+            return scheduleService.getSchedule(monday);
+        } catch (NotMondayException nme) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+                nme.getMessage() + " The 'monday' parameter must be a Monday date.", nme);
+        }
     }
 
     @GetMapping(path = "/baseSchedule")
@@ -58,8 +64,7 @@ public class ReadController {
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
-                // If the time off ends in the future. i.e. if it has not expired.
-                if (timeOff.getEnd().compareTo(LocalDateTime.now()) > 0) {
+                if (!timeOff.isExpired()) {
                     EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
                     employeeTimeOff.setStart(timeOff.getStart());
                     employeeTimeOff.setEnd(timeOff.getEnd());
