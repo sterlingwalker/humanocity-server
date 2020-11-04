@@ -17,4 +17,9 @@ public class UpdateController {
     public ResponseEntity<String> updateExistingEmployee(@RequestBody Employee employee) {
         return updateService.updateEmployeeInfo(employee);
     }
+
+    @DeleteMapping(path = "/terminate/{id}")
+    public ResponseEntity<String> terminateExistingEmployee(@PathVariable long id) {
+        return updateService.terminateEmployee(id);
+    }
 }
