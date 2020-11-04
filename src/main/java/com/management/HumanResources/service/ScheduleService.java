@@ -49,9 +49,10 @@ public class ScheduleService {
             throw new NotMondayException(monday);
         }
 
+        Map<Long, Employee> employees = readController.getEmployees().stream().collect(Collectors.toMap(Employee::getId, e -> e));
         List<ScheduleEntry> scheduleEntries = new ArrayList<>();
         for (EmployeeTime employeeTime : readController.getEmployeeTimes()) {
-            scheduleEntries.add(getEmployeeSchedule(monday, employeeTime));
+            scheduleEntries.add(getEmployeeSchedule(monday, employeeTime, employees));
         }
         return scheduleEntries;
     }
@@ -63,7 +64,7 @@ public class ScheduleService {
      * @param monday Monday of the requested week
      * @throws NotMondayException
      */
-    public ScheduleEntry getEmployeeSchedule(LocalDate monday, EmployeeTime employeeTime) throws NotMondayException {
+    public ScheduleEntry getEmployeeSchedule(LocalDate monday, EmployeeTime employeeTime, Map<Long, Employee> employees) throws NotMondayException {
         if (!monday.getDayOfWeek().equals(DayOfWeek.MONDAY)) {
             throw new NotMondayException(monday);
         }
@@ -92,9 +93,14 @@ public class ScheduleService {
                 }
             }
         }
+        
+        Employee employee = employees.get(employeeTime.getEmployeeId());
         ScheduleEntry scheduleEntry = new ScheduleEntry();
         scheduleEntry.setEmployeeId(employeeTime.getEmployeeId());
+        scheduleEntry.setFirstName(employee.getFirstName());
+        scheduleEntry.setLastName(employee.getLastName());
         scheduleEntry.setAvailability(employeeAvailability);
+
         return scheduleEntry;
     }
 
