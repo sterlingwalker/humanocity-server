@@ -55,11 +55,11 @@ public class Dao {
         .block();
   }
 
-  public <T> T deleteObjectWithParams(
-    Class<T> classReturnType, String path, String params, Object... args) {
+  public <T> T deleteObject(
+    Class<T> classReturnType, String path, Object... args) {
   return webClient
       .delete()
-      .uri(uriBuilder -> uriBuilder.path(path).queryParam(params).build(args))
+      .uri(uriBuilder -> uriBuilder.path(path).build(args))
       .accept(MediaType.APPLICATION_JSON)
       .retrieve()
       .bodyToMono(classReturnType)

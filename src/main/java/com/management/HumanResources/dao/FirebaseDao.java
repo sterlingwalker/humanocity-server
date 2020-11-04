@@ -57,4 +57,8 @@ public class FirebaseDao extends Dao {
     public String addFeedback(Feedback feedback) {
         return putSingleObject(String.class, "/feedback/{feedbackId}.json", feedback, feedback.getFeedbackId());
     }
+
+    public String eraseRecord(String recordPath) {
+        return deleteObject(String.class, recordPath);
+    }
 }
