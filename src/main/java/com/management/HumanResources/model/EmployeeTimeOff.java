@@ -5,4 +5,6 @@ import lombok.Data;
 @Data
 public class EmployeeTimeOff extends TimeOff {
     private long employeeId;
+    private String firstName;
+    private String lastName;
 }

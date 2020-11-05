@@ -2,6 +2,7 @@ package com.management.HumanResources.controller;
 
 import java.time.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.exceptions.*;
@@ -22,6 +23,7 @@ public class ReadController {
     @Autowired private FirebaseDao firebase;
     @Autowired private ParseService parseService;
     @Autowired private ScheduleService scheduleService;
+    @Autowired private ReadController readController;
 
     @GetMapping(path = "/employees")
     public List<Employee> getEmployees() {
@@ -62,16 +64,20 @@ public class ReadController {
     public List<EmployeeTimeOff> getEmployeeTimeoffs() {
         List<EmployeeTime> employeeTimes = getEmployeeTimes();
         List<EmployeeTimeOff> employeeTimeOffs = new ArrayList<>();
+        Map<Long, Employee> employees = readController.getEmployees().stream().collect(Collectors.toMap(Employee::getId, e -> e));
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
                 if (!timeOff.isExpired()) {
+                    Employee employee = employees.get(employeeTime.getEmployeeId());
                     EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
                     employeeTimeOff.setStart(timeOff.getStart());
                     employeeTimeOff.setEnd(timeOff.getEnd());
                     employeeTimeOff.setApproved(timeOff.isApproved());
                     employeeTimeOff.setReviewed(timeOff.isReviewed());
                     employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
+                    employeeTimeOff.setFirstName(employee.getFirstName());
+                    employeeTimeOff.setLastName(employee.getLastName());
                     employeeTimeOffs.add(employeeTimeOff);
                 }
             }
