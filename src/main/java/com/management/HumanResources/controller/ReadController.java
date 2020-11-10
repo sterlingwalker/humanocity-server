@@ -85,4 +85,9 @@ public class ReadController {
 
         return employeeTimeOffs;
     }
+
+    @GetMapping(path = "/feedbackList")
+    public List<Feedback> getFeedbackList() {
+        return parseService.jsonToFeedbackList(firebase.getAllFeedback());
+    }
 }
