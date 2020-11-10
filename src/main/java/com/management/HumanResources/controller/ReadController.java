@@ -2,15 +2,20 @@ package com.management.HumanResources.controller;
 
 import java.time.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 import com.management.HumanResources.dao.FirebaseDao;
+import com.management.HumanResources.exceptions.*;
 import com.management.HumanResources.model.*;
 import com.management.HumanResources.service.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value = "api/v1")
 public class ReadController {
@@ -18,10 +23,11 @@ public class ReadController {
     @Autowired private FirebaseDao firebase;
     @Autowired private ParseService parseService;
     @Autowired private ScheduleService scheduleService;
+    @Autowired private ReadController readController;
 
     @GetMapping(path = "/employees")
     public List<Employee> getEmployees() {
-        return parseService.jsonToEmployeeList(firebase.getAllEmployees()); //Need to parse for all employees due to the structure of firebase
+        return parseService.jsonToEmployeeList(firebase.getAllEmployees());
     }
 
     @GetMapping(path = "/employee/{id}")
@@ -39,11 +45,14 @@ public class ReadController {
         return firebase.getEmployeeTime(id);
     }
 
-    @GetMapping(path = "/schedule")
-    @ExceptionHandler({ Exception.class }) // TODO: Create a NotMondayException https://www.baeldung.com/exception-handling-for-rest-with-spring
-    public List<ScheduleEntry> getSchedule(@RequestParam("monday")@DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate monday)
-        throws Exception { // Date format: yyyy-MM-dd (e.g 2020-11-02)
-        return scheduleService.getSchedule(monday);
+    @GetMapping(path = "/schedule") // Date format: yyyy-MM-dd (e.g 2020-11-02)
+    public List<ScheduleEntry> getSchedule(@RequestParam("monday") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate monday) {
+        try {
+            return scheduleService.getSchedule(monday);
+        } catch (NotMondayException nme) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+                nme.getMessage() + " The 'monday' parameter must be a Monday date.", nme);
+        }
     }
 
     @GetMapping(path = "/baseSchedule")
@@ -55,17 +64,20 @@ public class ReadController {
     public List<EmployeeTimeOff> getEmployeeTimeoffs() {
         List<EmployeeTime> employeeTimes = getEmployeeTimes();
         List<EmployeeTimeOff> employeeTimeOffs = new ArrayList<>();
+        Map<Long, Employee> employees = readController.getEmployees().stream().collect(Collectors.toMap(Employee::getId, e -> e));
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
-                // If the time off ends in the future. i.e. if it has not expired.
-                if (timeOff.getEnd().compareTo(LocalDateTime.now()) > 0) {
+                if (!timeOff.isExpired()) {
+                    Employee employee = employees.get(employeeTime.getEmployeeId());
                     EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
                     employeeTimeOff.setStart(timeOff.getStart());
                     employeeTimeOff.setEnd(timeOff.getEnd());
                     employeeTimeOff.setApproved(timeOff.isApproved());
                     employeeTimeOff.setReviewed(timeOff.isReviewed());
                     employeeTimeOff.setEmployeeId(employeeTime.getEmployeeId());
+                    employeeTimeOff.setFirstName(employee.getFirstName());
+                    employeeTimeOff.setLastName(employee.getLastName());
                     employeeTimeOffs.add(employeeTimeOff);
                 }
             }

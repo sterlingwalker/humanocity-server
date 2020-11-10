@@ -1,13 +1,8 @@
 package com.management.HumanResources.dao;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 
-import com.management.HumanResources.model.Employee;
-import com.management.HumanResources.model.EmployeeTime;
-import com.management.HumanResources.model.Feedback;
-import com.management.HumanResources.model.TimeOff;
+import com.management.HumanResources.model.*;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.beans.factory.annotation.Value;
@@ -59,7 +54,11 @@ public class FirebaseDao extends Dao {
         return putSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toJson(), employeeTime.getEmployeeId());
     }
 
-    public String getFeedback(Feedback feedback) {
-        return putSingleObject(String.class, "/feedback/{employeeId}.json", feedback, feedback.getId());
+    public String addFeedback(Feedback feedback) {
+        return putSingleObject(String.class, "/feedback/{feedbackId}.json", feedback, feedback.getFeedbackId());
+    }
+
+    public String eraseRecord(String recordPath) {
+        return deleteObject(String.class, recordPath);
     }
 }

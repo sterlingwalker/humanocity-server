@@ -5,5 +5,7 @@ import lombok.Data;
 @Data
 public class ScheduleEntry {
     private long employeeId;
-    private String[] availability;
+    private String firstName;
+    private String lastName;
+    private DailyAvailability[] availability;
 }
