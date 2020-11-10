@@ -110,4 +110,18 @@ public class ParseService {
     public String csvGenerator(String ...stringArr) {
         return String.join(",", stringArr);
     }
+    public List<Feedback> jsonToFeedbackList(String json) {
+        JSONObject jsonFeedbackList = new JSONObject(json);
+        List<Feedback> feedback = new ArrayList<Feedback>();
+        jsonFeedbackList.keySet().forEach(key -> 
+            feedback.add(jsonToFeedback(jsonFeedbackList.getJSONObject(key))));
+        return feedback;
+    }
+    public Feedback jsonToFeedback(JSONObject obj) {
+        Feedback fback = new Feedback();
+        fback.setId(obj.getLong("id"));
+        fback.setType(obj.getString("type"));
+        fback.setDescription(obj.getString("description"));
+        return fback;
+    }
 }
