@@ -56,11 +56,11 @@ public class TimeOff {
             return false;
         }
 
-        TemporalField weekOfYear = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
-        LocalDateTime almostEnd = end.minusSeconds(1); // Would bring Monday back to Sunday if end == Monday 12am.
+        TemporalField weekOfYear = WeekFields.of(Locale.UK).weekOfWeekBasedYear(); // UK weeks start on Monday - which is what we need.
+        LocalDateTime almostEnd = end.minusSeconds(1); // Brings Monday back to Sunday if end day is Monday 12am.
 
         // Since weeks of year are cyclical, we need to check also the day difference between the time off start and end.
-        return start.get(weekOfYear) == almostEnd.get(weekOfYear) && start.until(almostEnd, ChronoUnit.DAYS) <= 7;
+        return start.get(weekOfYear) == almostEnd.get(weekOfYear) && start.until(almostEnd, ChronoUnit.DAYS) < 7;
     }
 
     public boolean isFullDays() {
