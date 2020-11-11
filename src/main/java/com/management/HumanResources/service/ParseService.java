@@ -139,7 +139,7 @@ public class ParseService {
         }
         return timeOffs.stream()
                       .map(to -> csvGenerator(to.getStart().toString(), to.getEnd().toString(), String.valueOf(to.isApproved())))
-                      .collect(Collectors.joining("|"));
+                      .collect(Collectors.joining("|")).replace("T", " ");
     }
 
     public String csvGenerator(String ...stringArr) {
