@@ -69,4 +69,8 @@ public class FirebaseDao extends Dao {
     public String eraseRecord(String recordPath) {
         return deleteObject(String.class, recordPath);
     }
+
+    public String updateHoursRemaining(double hours, long id) {
+        return putSingleObject(String.class, "/time/{employeeId}/hoursRemaining.json", hours, id);
+    }
 }

@@ -23,4 +23,14 @@ public class UpdateController {
     public ResponseEntity<String> terminateExistingEmployee(@PathVariable long id) {
         return updateService.terminateEmployee(id);
     }
+
+    @PatchMapping(path = "/approveTO")
+    public String approveTimeOff(@RequestBody EmployeeTimeOff employee) {
+        return updateService.approveTimeOff(employee);
+    }
+
+    @PatchMapping(path = "/denyTO")
+    public String denyTimeOff(@RequestBody EmployeeTimeOff employee) {
+        return updateService.denyTimeOff(employee);
+    }
 }
