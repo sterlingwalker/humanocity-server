@@ -35,4 +35,9 @@ public class CreateController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to add feedback");
         }
     }
+
+    @PostMapping(path = "/timeoff")
+    public String addNewTimeOff(@RequestBody EmployeeTimeOff timeOff) {
+        return createService.enterNewTimeOff(timeOff);
+    }
 }

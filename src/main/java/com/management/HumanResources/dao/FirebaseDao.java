@@ -42,12 +42,16 @@ public class FirebaseDao extends Dao {
         return getSingleObject(String.class, "/time.json");
     }
 
-    public EmployeeTime getEmployeeTime(long employeeId) {
-        return getSingleObject(EmployeeTime.class, "/time/{employeeId}.json", employeeId);
+    public String getEmployeeTime(long employeeId) {
+        return getSingleObject(String.class, "/time/{employeeId}.json", employeeId);
     }
   
     public String updateEmployeeTime(EmployeeTime employeeTime) {
         return patchSingleObject(String.class, "/time/{employeeId}.json", employeeTime.toJson(), employeeTime.getEmployeeId());
+    }
+
+    public String updateTimeOff(String employeeTime, long id) {
+        return putSingleObject(String.class, "/time/{employeeId}/timeOffs.json", "\"" + employeeTime + "\"", id);
     }
   
     public String addEmployeeTime(EmployeeTime employeeTime) {
@@ -64,5 +68,9 @@ public class FirebaseDao extends Dao {
 
     public String eraseRecord(String recordPath) {
         return deleteObject(String.class, recordPath);
+    }
+
+    public String updateHoursRemaining(double hours, long id) {
+        return putSingleObject(String.class, "/time/{employeeId}/hoursRemaining.json", hours, id);
     }
 }

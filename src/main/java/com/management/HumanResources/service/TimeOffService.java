@@ -16,15 +16,24 @@ public class TimeOffService {
     
     private final int MIN_WORKERS = 3; // Minimum number of employees that work at a given time.
 
-    public void approveTimeOffForEmployee(TimeOff timeOff, EmployeeTime employeeTime) {
-        timeOff.setApproved(true);
-        timeOff.setReviewed(true);
-        employeeTime.setHoursRemaining(employeeTime.getHoursRemaining() - getNumberOfTimeOffHoursForEmployee(timeOff, employeeTime));
+    public EmployeeTime approveTimeOffForEmployee(TimeOff timeOffRequest, EmployeeTime employeeTime) {
+        employeeTime.getTimeOffs().forEach(timeOff -> {
+            if (timeOffMatches(timeOff, timeOffRequest)) {
+                timeOff.setApproved(true);
+                timeOff.setReviewed(true);
+                employeeTime.setHoursRemaining(employeeTime.getHoursRemaining() - getNumberOfTimeOffHoursForEmployee(timeOff, employeeTime));
+           }});
+        return employeeTime;
     }
 
-    public void declineTimeOff(TimeOff timeOff) {
-        timeOff.setApproved(false);
-        timeOff.setReviewed(true);
+    public EmployeeTime declineTimeOff(TimeOff timeOffRequest, EmployeeTime employeeTime) {
+        employeeTime.getTimeOffs().removeIf(timeOff -> timeOffMatches(timeOff, timeOffRequest));
+        return employeeTime;
+    }
+
+    public boolean timeOffMatches(TimeOff source, TimeOff request) {
+        return source.getStart().equals(request.getStart()) &&
+               source.getEnd().equals(request.getEnd());
     }
 
     /**
