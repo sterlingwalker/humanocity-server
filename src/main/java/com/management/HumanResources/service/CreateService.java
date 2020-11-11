@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Random;
 
 import com.management.HumanResources.dao.FirebaseDao;
+import com.management.HumanResources.exceptions.InvalidTimeOffException;
 import com.management.HumanResources.model.*;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class CreateService {
 
     @Autowired private FirebaseDao firebase;
     @Autowired private ParseService parseService;
+    @Autowired private TimeOffService timeOffService;
 
     public boolean createNewEmployee(Employee employee) {
         Random r = new Random();
@@ -56,6 +59,24 @@ public class CreateService {
         feedback.setFeedbackId((long)(rand.nextDouble() * (Math.pow(10, 10))));
         firebase.addFeedback(feedback);
         return true;
+    }
+
+    public String enterNewTimeOff(EmployeeTimeOff timeOff) {
+        EmployeeTime employee = parseService.jsonToEmployeeTime(new JSONObject(firebase.getEmployeeTime(timeOff.getEmployeeId())));
+        if (employee == null) {
+            return "Employee not found";
+        }
+
+        try {
+            timeOffService.validateTimeOffForEmployee(timeOff, employee);
+            List<TimeOff> allTimeOff = employee.getTimeOffs();
+            allTimeOff.add(timeOff);
+            firebase.updateTimeOff(parseService.timeOffToCsv(allTimeOff), timeOff.getEmployeeId());
+            return "TimeOff submitted Successfully";
+
+        } catch (InvalidTimeOffException e) {
+            return e.getMessage();
+        }
     }
 
 }

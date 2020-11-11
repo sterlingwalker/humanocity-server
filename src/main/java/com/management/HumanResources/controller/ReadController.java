@@ -9,6 +9,7 @@ import com.management.HumanResources.exceptions.*;
 import com.management.HumanResources.model.*;
 import com.management.HumanResources.service.*;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -42,7 +43,7 @@ public class ReadController {
 
     @GetMapping(path = "/employeeTime/{id}")
     public EmployeeTime getEmployeeTime(@PathVariable long id) {
-        return firebase.getEmployeeTime(id);
+        return parseService.jsonToEmployeeTime(new JSONObject(firebase.getEmployeeTime(id)));
     }
 
     @GetMapping(path = "/schedule") // Date format: yyyy-MM-dd (e.g 2020-11-02)
