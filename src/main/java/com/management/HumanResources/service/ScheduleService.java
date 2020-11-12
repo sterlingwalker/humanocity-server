@@ -83,13 +83,19 @@ public class ScheduleService {
                     if(timeOff.getEnd().getHour() == sameDayAvailability.getEnd()) {
                         sameDayAvailability.setEnd(timeOff.getStart().getHour());
                     }
+                    sameDayAvailability.setModified(true);
                 }
             }
             else {
                 // For time off end we need to take off one day because if the time off ends on next monday,
                 // the index would be 0 and the loop will not run. Modulo 7 will wrap -1 to 6 which corresponds to Sunday.
                 for (int i = timeOff.getStartDayOfWeek(); i <= (timeOff.getEndDayOfWeek() - 1) % 7; i++) {
-                    employeeAvailability[i] = new DailyAvailability();
+                    // Sets availability to 'off' for that day if not off already.
+                    if (!employeeAvailability[i].isOff()) {
+                        DailyAvailability dayAvailability = new DailyAvailability(); 
+                        dayAvailability.setModified(true);
+                        employeeAvailability[i] = dayAvailability;
+                    }
                 }
             }
         }
