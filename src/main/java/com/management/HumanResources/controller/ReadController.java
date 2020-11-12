@@ -62,14 +62,14 @@ public class ReadController {
     }
 
     @GetMapping(path = "/timeoffs")
-    public List<EmployeeTimeOff> getEmployeeTimeoffs() {
+    public List<EmployeeTimeOff> getEmployeeTimeoffs(@RequestParam(required = false) boolean includeExpired) {
         List<EmployeeTime> employeeTimes = getEmployeeTimes();
         List<EmployeeTimeOff> employeeTimeOffs = new ArrayList<>();
         Map<Long, Employee> employees = readController.getEmployees().stream().collect(Collectors.toMap(Employee::getId, e -> e));
 
         for (EmployeeTime employeeTime : employeeTimes) {
             for (TimeOff timeOff : employeeTime.getTimeOffs()) {
-                if (!timeOff.isExpired()) {
+                if (includeExpired || !timeOff.isExpired()) {
                     Employee employee = employees.get(employeeTime.getEmployeeId());
                     EmployeeTimeOff employeeTimeOff = new EmployeeTimeOff();
                     employeeTimeOff.setStart(timeOff.getStart());
