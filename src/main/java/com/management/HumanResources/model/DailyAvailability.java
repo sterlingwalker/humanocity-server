@@ -7,6 +7,7 @@ public class DailyAvailability {
     
     private int start;
     private int end;
+    private boolean isModified;
 
     public boolean isOff() {
         return start == 0 && end == 0;
