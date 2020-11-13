@@ -43,6 +43,11 @@ public class TimeOffService {
      */
     public void validateTimeOffForEmployee(TimeOff timeOff, EmployeeTime employeeTime) throws InvalidTimeOffException {
         
+        // Check if the time off end is in the past.
+        if (timeOff.isExpired()) {
+            throw new InvalidTimeOffExpiredException();
+        }
+
         // Check if the time off start and end are in the correct order.
         if (!timeOff.isStartBeforeEnd()) {
             throw new InvalidTimeOffStartAfterEndException();
