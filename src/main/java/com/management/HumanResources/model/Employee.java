@@ -21,6 +21,9 @@ public class Employee {
     private Address address;
     private long managerID;
     private String dept;
+    private String phoneNumber;
+    private String emergencyName;
+    private String emergencyNumber;
 
     @JsonIgnore
     public String getUniqueData() {
@@ -36,6 +39,9 @@ public class Employee {
         this.address = updatedEmployee.getAddress() == null ? this.address : updatedEmployee.getAddress();
         this.managerID = updatedEmployee.getManagerID() == 0 ? this.managerID : updatedEmployee.getManagerID();
         this.dept = updatedEmployee.getDept() == null ? this.dept : updatedEmployee.getDept();
+        this.phoneNumber = updatedEmployee.getPhoneNumber() == null ? this.phoneNumber : updatedEmployee.getPhoneNumber();
+        this.emergencyName = updatedEmployee.getEmergencyName() == null ? this.emergencyName : updatedEmployee.getEmergencyName();
+        this.emergencyNumber = updatedEmployee.getEmergencyNumber() == null ? this.emergencyNumber : updatedEmployee.getEmergencyNumber();
       }
 
 }
