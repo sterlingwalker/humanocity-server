@@ -34,6 +34,9 @@ public class ParseService {
         emp.setManagerID(obj.getLong("managerID"));
         emp.setId(obj.getLong("id"));
         emp.setAddress(jsonToAddress(obj.getJSONObject("address")));
+        emp.setPhoneNumber(obj.getString("phoneNumber"));
+        emp.setEmergencyName(obj.getString("emergencyName"));
+        emp.setEmergencyNumber(obj.getString("emergencyNumber"));
         return emp;
     }
 
