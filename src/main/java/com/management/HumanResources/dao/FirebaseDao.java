@@ -73,4 +73,8 @@ public class FirebaseDao extends Dao {
     public String updateHoursRemaining(double hours, long id) {
         return putSingleObject(String.class, "/time/{employeeId}/hoursRemaining.json", hours, id);
     }
+
+    public Feedback getSingleFeedback(long feedbackId) {
+        return getSingleObject(Feedback.class, "/feedback/{feedbackId}.json", feedbackId);
+    }
 }
