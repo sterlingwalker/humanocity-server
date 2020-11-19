@@ -80,4 +80,14 @@ public class UpdateService {
             return e.getMessage();
         }
     }
+
+    public String eraseFeedback(long feedbackId) {
+        Feedback feedback = firebase.getSingleFeedback(feedbackId);
+        if (feedback == null) {
+            return "Feedback not found";
+        }
+
+        firebase.eraseRecord("/feedback/" + feedbackId + ".json");
+        return "Feedback dismissed successfully";
+    }
 }

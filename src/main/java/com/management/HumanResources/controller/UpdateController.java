@@ -33,4 +33,9 @@ public class UpdateController {
     public String denyTimeOff(@RequestBody EmployeeTimeOff employee) {
         return updateService.denyTimeOff(employee);
     }
+
+    @DeleteMapping(path = "/feedback/{feedbackId}")
+    public String dismissFeedback(@PathVariable long feedbackId) {
+        return updateService.eraseFeedback(feedbackId);
+    }
 }
