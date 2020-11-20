@@ -99,31 +99,6 @@ public class UpdateService {
         }
     }
 
-    public String removeTimeOff(int timeOffId) {
-        List<EmployeeTimeOff> employeeTimeOffs = readController.getEmployeeTimeoffs(false);
-        Optional<EmployeeTimeOff> optionalTime = employeeTimeOffs.stream().filter(eto -> eto.getTimeOffId() == timeOffId).findFirst();
-
-        if (!optionalTime.isPresent()) {
-            return "Time off not found";
-        }
-
-        EmployeeTimeOff time = optionalTime.get();
-        EmployeeTime employee = parseService.jsonToEmployeeTime(new JSONObject(firebase.getEmployeeTime(time.getEmployeeId())));
-        
-        if (employee == null) {
-            return "Employee not found";
-        }
-
-        try {
-            List<TimeOff> timeOffs = employee.getTimeOffs();
-            timeOffs.removeIf(to -> to.getStart().equals(time.getStart()) && to.getEnd().equals(time.getEnd()));
-            firebase.updateTimeOff(parseService.timeOffToCsv(timeOffs), employee.getEmployeeId());
-            return "Time off removed successfully";
-        } catch (Exception e) {
-            return e.getMessage();
-        }
-    }
-
     public String eraseFeedback(long feedbackId) {
         Feedback feedback = firebase.getSingleFeedback(feedbackId);
         if (feedback == null) {

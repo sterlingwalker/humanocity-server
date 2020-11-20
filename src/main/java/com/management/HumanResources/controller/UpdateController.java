@@ -34,11 +34,6 @@ public class UpdateController {
         return updateService.denyTimeOff(timeOffId);
     }
 
-    @PatchMapping(path = "/removeTO")
-    public String removeTimeOff(@RequestBody int timeOffId) {
-        return updateService.removeTimeOff(timeOffId);
-    }
-
     @DeleteMapping(path = "/feedback/{feedbackId}")
     public String dismissFeedback(@PathVariable long feedbackId) {
         return updateService.eraseFeedback(feedbackId);
