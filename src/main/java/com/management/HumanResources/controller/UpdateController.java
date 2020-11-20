@@ -25,13 +25,18 @@ public class UpdateController {
     }
 
     @PatchMapping(path = "/approveTO")
-    public String approveTimeOff(@RequestBody EmployeeTimeOff employee) {
-        return updateService.approveTimeOff(employee);
+    public String approveTimeOff(@RequestBody int timeOffId) {
+        return updateService.approveTimeOff(timeOffId);
     }
 
     @PatchMapping(path = "/denyTO")
-    public String denyTimeOff(@RequestBody EmployeeTimeOff employee) {
-        return updateService.denyTimeOff(employee);
+    public String denyTimeOff(@RequestBody int timeOffId) {
+        return updateService.denyTimeOff(timeOffId);
+    }
+
+    @PatchMapping(path = "/removeTO")
+    public String removeTimeOff(@RequestBody int timeOffId) {
+        return updateService.removeTimeOff(timeOffId);
     }
 
     @DeleteMapping(path = "/feedback/{feedbackId}")
