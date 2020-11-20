@@ -1,8 +1,6 @@
 package com.management.HumanResources.service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import com.management.HumanResources.dao.FirebaseDao;
 import com.management.HumanResources.exceptions.InvalidTimeOffException;
@@ -68,15 +66,16 @@ public class CreateService {
         }
 
         try {
+            if (!timeOff.isSameDay()) {
+                timeOff.setEnd(timeOff.getEnd().plusDays(1)); // Adding one day to include the last day as a full off day.
+            }
             timeOffService.validateTimeOffForEmployee(timeOff, employee);
             List<TimeOff> allTimeOff = employee.getTimeOffs();
             allTimeOff.add(timeOff);
             firebase.updateTimeOff(parseService.timeOffToCsv(allTimeOff), timeOff.getEmployeeId());
-            return "TimeOff submitted Successfully";
-
+            return "Time off submitted successfully";
         } catch (InvalidTimeOffException e) {
             return e.getMessage();
         }
     }
-
 }

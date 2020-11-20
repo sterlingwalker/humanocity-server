@@ -8,10 +8,10 @@ import lombok.Data;
 
 @Data
 public class TimeOff {
-    private LocalDateTime start;
-    private LocalDateTime end;
-    private boolean approved;
-    private boolean reviewed;
+    protected LocalDateTime start;
+    protected LocalDateTime end;
+    protected boolean approved;
+    protected boolean reviewed;
 
     /**
      * Returns the zero-based time off start day of the week where zero is Monday.
