@@ -141,7 +141,11 @@ public class ParseService {
             return "null";
         }
         return timeOffs.stream()
-                      .map(to -> csvGenerator(to.getStart().toString(), to.getEnd().toString(), String.valueOf(to.isApproved())))
+                      .map(to -> csvGenerator(
+                          to.getStart().toString(),
+                          to.getEnd().toString(),
+                          to.isReviewed() ? String.valueOf(to.isApproved()) : "null")
+                        )
                       .collect(Collectors.joining("|")).replace("T", " ");
     }
 
