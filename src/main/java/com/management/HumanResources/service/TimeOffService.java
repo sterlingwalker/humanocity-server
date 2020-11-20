@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TimeOffService {
 
-    @Autowired ScheduleService scheduleService;
+    @Autowired private ScheduleService scheduleService;
     
     private final int MIN_WORKERS = 3; // Minimum number of employees that work at a given time.
 
@@ -68,6 +68,11 @@ public class TimeOffService {
         }
         else if (!timeOff.isFullDays()) { // Check start and end days (must start and end at 12am).
             throw new InvalidTimeOffMultiDayRangeException();
+        }
+  
+        // Check for duplicate time off.
+        if (employeeTime.getTimeOffs().stream().anyMatch(to -> to.getStart().equals(timeOff.getStart()) && to.getEnd().equals(timeOff.getEnd()))) {
+            throw new InvalidTimeOffDuplicateException();
         }
         
         if (getMinNumberOfWorkersForPossibleTimeOff(timeOff) < MIN_WORKERS) {
