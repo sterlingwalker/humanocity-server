@@ -30,7 +30,8 @@ public class CreateController {
     public ResponseEntity<String> addNewFeedback(@RequestBody Feedback feedback) {
         boolean success = createService.enterNewFeedback(feedback);
         if (success) {
-            return ResponseEntity.status(HttpStatus.CREATED).body("Feedback added");
+            return ResponseEntity.status(HttpStatus.CREATED).body("Thanks for submitting feedback! The " 
+                + feedback.getType().toLowerCase() + " has been automatically ignored.");
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Unable to add feedback");
         }
