@@ -50,7 +50,8 @@ public class CreateService {
     }
 
     public boolean enterNewFeedback(Feedback feedback) {
-        if(feedback.getEmployeeId() == 0) {
+        Employee employee = firebase.getEmployee(feedback.getEmployeeId());
+        if(employee == null) {
             return false;
         }
         Random rand = new Random(System.currentTimeMillis()); //Time based to ensure a unique id is created
