@@ -59,6 +59,11 @@ public class TimeOffService {
         }
 
         if (timeOff.isSameDay()) {
+            // Check if the time off start and end times are round hours.
+            if (timeOff.getStart().getMinute() != 0 || timeOff.getEnd().getMinute() != 0) {
+                throw new InvalidTimeOffStartEndException();
+            }
+
             // Check same day start and end times (must start and/or end at the availability time).
             int timeOffDayOfWeek = timeOff.getStartDayOfWeek();
             DailyAvailability dailyAvailability = employeeTime.getAvailability()[timeOffDayOfWeek];
