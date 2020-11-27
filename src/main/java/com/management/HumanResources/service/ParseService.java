@@ -43,6 +43,7 @@ public class ParseService {
     public Address jsonToAddress(JSONObject obj) {
         Address a = new Address();
         a.setStreet(obj.getString("street"));
+        a.setStreet2(obj.getString("street2"));
         a.setCity(obj.getString("city"));
         a.setState(obj.getString("state"));
         a.setZipcode(obj.getString("zipcode"));
