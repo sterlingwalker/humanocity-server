@@ -1,0 +1,1469 @@
+{
+  "employees" : {
+    "137803381" : {
+      "address" : {
+        "city" : "Howell",
+        "state" : "Michigan",
+        "street" : "777 Acorn St",
+        "street2" : "N/A",
+        "zipcode" : "48427"
+      },
+      "dept" : "Legal",
+      "email" : "jdog4@gmail.com",
+      "emergencyName" : "Lenny Lewis",
+      "emergencyNumber" : "2487978090",
+      "firstName" : "Jonathan",
+      "id" : 137803381,
+      "lastName" : "Lewis",
+      "managerID" : 0,
+      "phoneNumber" : "2489765837",
+      "position" : "Lawyer",
+      "salary" : 90000
+    },
+    "213796944" : {
+      "address" : {
+        "city" : "Romeo",
+        "state" : "Michigan",
+        "street" : "49288 Tilson st",
+        "street2" : "N/A",
+        "zipcode" : "48065"
+      },
+      "dept" : "Finance",
+      "email" : "mozendani42@yahoo.com",
+      "emergencyName" : "Cam ",
+      "emergencyNumber" : "(586)728-1231",
+      "firstName" : "Mohammad",
+      "id" : 213796944,
+      "lastName" : "Zendani",
+      "managerID" : 0,
+      "phoneNumber" : "(586)566-7281",
+      "position" : "IT",
+      "salary" : 65000
+    },
+    "312567501" : {
+      "address" : {
+        "city" : "Waterford",
+        "state" : "Michigan",
+        "street" : "8989 Pine St",
+        "street2" : "N/A",
+        "zipcode" : "43289"
+      },
+      "dept" : "Engineering",
+      "email" : "Jwatts@hotmail.com",
+      "emergencyName" : "Fernando Vance",
+      "emergencyNumber" : "3428388892",
+      "firstName" : "Jonah",
+      "id" : 312567501,
+      "lastName" : "Waterson",
+      "managerID" : 0,
+      "phoneNumber" : "4328878837",
+      "position" : "Engineer",
+      "salary" : 78000
+    },
+    "374504948" : {
+      "address" : {
+        "city" : "Savannah",
+        "state" : "GA",
+        "street" : "1830  Layman Avenue",
+        "street2" : "N/A",
+        "zipcode" : "31405"
+      },
+      "dept" : "Finance",
+      "email" : "PirtleCamileBusiness@gmail.com",
+      "emergencyName" : "",
+      "emergencyNumber" : "912-436-1613",
+      "firstName" : "Camile",
+      "id" : 374504948,
+      "lastName" : "Pirtle",
+      "managerID" : 0,
+      "phoneNumber" : "315-358-7651",
+      "position" : "Finance Director",
+      "salary" : 92000
+    },
+    "528797006" : {
+      "address" : {
+        "city" : "El Cajon",
+        "state" : "CA",
+        "street" : "653  Ashcraft Court",
+        "street2" : "N/A",
+        "zipcode" : "92020"
+      },
+      "dept" : "HR",
+      "email" : "WeilderBiz@gmail.com",
+      "emergencyName" : "John A Coleman",
+      "emergencyNumber" : "619-715-4520",
+      "firstName" : "Scott",
+      "id" : 528797006,
+      "lastName" : "Weidler",
+      "managerID" : 999121221,
+      "phoneNumber" : "619-444-9368",
+      "position" : "Benefits Manager",
+      "salary" : 75000
+    },
+    "835437797" : {
+      "address" : {
+        "city" : "Shelby Twp",
+        "state" : "Michigan",
+        "street" : "5712 Joseph st",
+        "street2" : "N/A",
+        "zipcode" : "48313"
+      },
+      "dept" : "Finance",
+      "email" : "Pattersonmark@gmail.com",
+      "emergencyName" : "Joe",
+      "emergencyNumber" : "5723382938",
+      "firstName" : "Marcus",
+      "id" : 835437797,
+      "lastName" : "Patterson",
+      "managerID" : 0,
+      "phoneNumber" : "5867436672",
+      "position" : "Bill collector",
+      "salary" : 74000
+    },
+    "1021599151" : {
+      "address" : {
+        "city" : "Sterling heights",
+        "state" : "Michigan",
+        "street" : "322 Jefferson st",
+        "street2" : "N/A",
+        "zipcode" : "48313"
+      },
+      "dept" : "Legal",
+      "email" : "coreys44@gmail.com",
+      "emergencyName" : "Mary",
+      "emergencyNumber" : "(672)882-7823",
+      "firstName" : "Corey ",
+      "id" : 1021599151,
+      "lastName" : "Stout",
+      "managerID" : 0,
+      "phoneNumber" : "(313)829-5421",
+      "position" : "Lawyer",
+      "salary" : 82000
+    },
+    "1391469725" : {
+      "address" : {
+        "city" : "Orlando",
+        "state" : "Florida",
+        "street" : "2617 Chestnut Lane",
+        "street2" : "N/A",
+        "zipcode" : "36367"
+      },
+      "dept" : "Legal",
+      "email" : "sab1132@yahoo.com",
+      "emergencyName" : "Brady Scotts",
+      "emergencyNumber" : "8267783019",
+      "firstName" : "Sabrina",
+      "id" : 1391469725,
+      "lastName" : "Foley",
+      "managerID" : 0,
+      "phoneNumber" : "8264015505",
+      "position" : "Legal Counsel",
+      "salary" : 98000
+    },
+    "1545572680" : {
+      "address" : {
+        "city" : "Fort Lauderdale",
+        "state" : "FL",
+        "street" : "3231  Rinehart Road",
+        "street2" : "N/A",
+        "zipcode" : "33301"
+      },
+      "dept" : "Accounting",
+      "email" : "WilksBusiness@gmail.com",
+      "emergencyName" : "Todd W Weiser",
+      "emergencyNumber" : "904-322-3512",
+      "firstName" : "Kevin",
+      "id" : 1545572680,
+      "lastName" : "Wilks",
+      "managerID" : 92192138,
+      "phoneNumber" : "786-428-6048",
+      "position" : "Business Analyst",
+      "salary" : 58000
+    },
+    "1739310389" : {
+      "address" : {
+        "city" : "Flint",
+        "state" : "Michigan",
+        "street" : "735 W Franklin St",
+        "street2" : "N/A",
+        "zipcode" : "48501"
+      },
+      "dept" : "Engineering",
+      "email" : "ashley@gmail.com",
+      "emergencyName" : "Jake Owen",
+      "emergencyNumber" : "(248)-844-9833",
+      "firstName" : "Ashley",
+      "id" : 1739310389,
+      "lastName" : "Opec",
+      "managerID" : 1000000000,
+      "phoneNumber" : "(248)-833-3999",
+      "position" : "Chief Engineer",
+      "salary" : 105000,
+      "tableData" : {
+        "id" : 3
+      }
+    },
+    "1834046084" : {
+      "address" : {
+        "city" : "Rakesville",
+        "state" : "Georgia",
+        "street" : "123 Holly Dr",
+        "street2" : "N/A",
+        "zipcode" : "89293"
+      },
+      "dept" : "Maintenance",
+      "email" : "whatsup@yahoo.com",
+      "emergencyName" : "Tyler Horton",
+      "emergencyNumber" : "9008236233",
+      "firstName" : "Danny",
+      "id" : 1834046084,
+      "lastName" : "Rutherford",
+      "managerID" : 0,
+      "phoneNumber" : "9002373721",
+      "position" : "Janitor",
+      "salary" : 492000
+    },
+    "1836163973" : {
+      "address" : {
+        "city" : "Terre Haute",
+        "state" : "IN",
+        "street" : "4857  Charack Road",
+        "street2" : "",
+        "zipcode" : "47802"
+      },
+      "dept" : "IT",
+      "email" : "AnnaLAnna@gmail.com",
+      "emergencyName" : "Benny Anding",
+      "emergencyNumber" : "812-229-9365",
+      "firstName" : "Anna",
+      "id" : 1836163973,
+      "lastName" : "Anding",
+      "managerID" : 343423432,
+      "phoneNumber" : "812-236-1560",
+      "position" : "Help Desk",
+      "salary" : 50000
+    },
+    "1943777728" : {
+      "address" : {
+        "city" : "Boston",
+        "state" : "MA",
+        "street" : "3319  Cedar Lane",
+        "street2" : "N/A",
+        "zipcode" : "02199"
+      },
+      "dept" : "Accounting",
+      "email" : "PoorreeEric@gmail.com",
+      "emergencyName" : "Erika Amoee",
+      "emergencyNumber" : "617-419-5369",
+      "firstName" : "Eric",
+      "id" : 1943777728,
+      "lastName" : "Poore",
+      "managerID" : 348828811,
+      "phoneNumber" : "617-580-3546",
+      "position" : "Accounting Director",
+      "salary" : 105000
+    },
+    "2084946876" : {
+      "address" : {
+        "city" : "BRIDGEPORT",
+        "state" : "TX",
+        "street" : "4885  Godfrey Road",
+        "street2" : "N/A",
+        "zipcode" : "76422"
+      },
+      "dept" : "Purchasing",
+      "email" : "MattBiz@gmail.com",
+      "emergencyName" : "Cathleen",
+      "emergencyNumber" : "940-394-3182",
+      "firstName" : "Matthew",
+      "id" : 2084946876,
+      "lastName" : "Conen",
+      "managerID" : 111,
+      "phoneNumber" : "212-518-4969",
+      "position" : "Purchasing Staff",
+      "salary" : 63000
+    },
+    "2087490192" : {
+      "address" : {
+        "city" : "San Francisco",
+        "state" : "Washington",
+        "street" : "3838 Grove Rd",
+        "street2" : "N/A",
+        "zipcode" : "90809"
+      },
+      "dept" : "Maintenance",
+      "email" : "xtreme57@gmail.com",
+      "emergencyName" : "Jenna Martin",
+      "emergencyNumber" : "8720094929",
+      "firstName" : "Shawn",
+      "id" : 2087490192,
+      "lastName" : "Black",
+      "managerID" : 0,
+      "phoneNumber" : "5554872092",
+      "position" : "Janitor",
+      "salary" : 45000
+    },
+    "2259077270" : {
+      "address" : {
+        "city" : "Warren",
+        "state" : "Michigan",
+        "street" : "7382 Kingsway road",
+        "street2" : "N/A",
+        "zipcode" : "48055"
+      },
+      "dept" : "Marketing",
+      "email" : "Sanaowis@gmail.com",
+      "emergencyName" : "John Marren",
+      "emergencyNumber" : "(232)581-8293",
+      "firstName" : "Sara",
+      "id" : 2259077270,
+      "lastName" : "Sanaowi",
+      "managerID" : 1,
+      "phoneNumber" : "(527)238-2231",
+      "position" : "Office Administrator",
+      "salary" : 34000
+    },
+    "2551512800" : {
+      "address" : {
+        "city" : "Buffalo",
+        "state" : "NY",
+        "street" : "355  Jarvis Street",
+        "street2" : "N/A",
+        "zipcode" : "14221"
+      },
+      "dept" : "Finance",
+      "email" : "MaracccingDessie@gmail.com",
+      "emergencyName" : "Maria Deer",
+      "emergencyNumber" : "716-605-1913",
+      "firstName" : "Dessie",
+      "id" : 2551512800,
+      "lastName" : "Maraco",
+      "managerID" : 9342377743,
+      "phoneNumber" : "716-881-3171",
+      "position" : "Financial Analyst",
+      "salary" : 64000
+    },
+    "2706558480" : {
+      "address" : {
+        "city" : "Troy",
+        "state" : "MI",
+        "street" : "5383 Oak Ave",
+        "street2" : "N/A",
+        "zipcode" : "48295"
+      },
+      "dept" : "Operations",
+      "email" : "manson@company.com",
+      "emergencyName" : "Sara Thompson",
+      "emergencyNumber" : "(248)-382-3884",
+      "firstName" : "Jameson",
+      "id" : 2706558480,
+      "lastName" : "Manson",
+      "managerID" : 3492398342,
+      "phoneNumber" : "(248)-322-1833",
+      "position" : "Data Analyst",
+      "salary" : 85000
+    },
+    "2748272849" : {
+      "address" : {
+        "city" : "Flint",
+        "state" : "Michigan",
+        "street" : "1234 Walnut Ave",
+        "street2" : "N/A",
+        "zipcode" : "48501"
+      },
+      "dept" : "Engineering",
+      "email" : "john@yahoo.com",
+      "emergencyName" : "Leeroy Jenkins",
+      "emergencyNumber" : "(380)-211-4338",
+      "firstName" : "John",
+      "id" : 2748272849,
+      "lastName" : "Baran",
+      "managerID" : 1739310389,
+      "phoneNumber" : "(380)-388-7712",
+      "position" : "Engineer",
+      "salary" : 75000,
+      "tableData" : {
+        "id" : 0
+      }
+    },
+    "2923517855" : {
+      "address" : {
+        "city" : "Roseville ",
+        "state" : "Michigan",
+        "street" : "57124 Hollywood st",
+        "street2" : "N/A",
+        "zipcode" : "37482"
+      },
+      "dept" : "Maintenance",
+      "email" : "Ivantheman2@gmail.com",
+      "emergencyName" : "Stacy Mack",
+      "emergencyNumber" : "(432)238-3282",
+      "firstName" : "Ivan",
+      "id" : 2923517855,
+      "lastName" : "Welsh",
+      "managerID" : 0,
+      "phoneNumber" : "(313)923-2351",
+      "position" : "Janitor",
+      "salary" : 35000
+    },
+    "3202517856" : {
+      "address" : {
+        "city" : "New Orleans",
+        "state" : "Louisiana",
+        "street" : "909 Eden St",
+        "street2" : "N/A",
+        "zipcode" : "23223"
+      },
+      "dept" : "Legal",
+      "email" : "dbreesrulz@yahoo.com",
+      "emergencyName" : "Jon Garfield",
+      "emergencyNumber" : "2238827548",
+      "firstName" : "Rebecca",
+      "id" : 3202517856,
+      "lastName" : "Saint",
+      "managerID" : 0,
+      "phoneNumber" : "2239098142",
+      "position" : "Lawyer",
+      "salary" : 95000
+    },
+    "3273630570" : {
+      "address" : {
+        "city" : "Richville",
+        "state" : "Oregon",
+        "street" : "1818 Common St",
+        "street2" : "N/A",
+        "zipcode" : "76354"
+      },
+      "dept" : "Engineering",
+      "email" : "fernie9929@hotmail.com",
+      "emergencyName" : "Tony Stark",
+      "emergencyNumber" : "1273937709",
+      "firstName" : "Louis",
+      "id" : 3273630570,
+      "lastName" : "Fern",
+      "managerID" : 0,
+      "phoneNumber" : "1385557878",
+      "position" : "Engineer",
+      "salary" : 155000
+    },
+    "3285744082" : {
+      "address" : {
+        "city" : "Portland",
+        "state" : "Oregon",
+        "street" : "3626  Illinois Avenue",
+        "street2" : "N/A",
+        "zipcode" : "97205"
+      },
+      "dept" : "Global Ops",
+      "email" : "BrucePGooden@gmail.com",
+      "emergencyName" : "Daniel A Lubin",
+      "emergencyNumber" : "503-969-0606",
+      "firstName" : "Bruce",
+      "id" : 3285744082,
+      "lastName" : "Gooden",
+      "managerID" : 78889764,
+      "phoneNumber" : "973-635-8099",
+      "position" : "Operations Assistant",
+      "salary" : 65000
+    },
+    "3381789701" : {
+      "address" : {
+        "city" : "Birmingham ",
+        "state" : "Michigan",
+        "street" : "821 West 3rd st",
+        "street2" : "N/A",
+        "zipcode" : "35005"
+      },
+      "dept" : "Marketing",
+      "email" : "Simpsonj2@gmail.com",
+      "emergencyName" : "Amy",
+      "emergencyNumber" : "2952930211",
+      "firstName" : "Joshua",
+      "id" : 3381789701,
+      "lastName" : "Simpson",
+      "managerID" : 0,
+      "phoneNumber" : "2487842566",
+      "position" : "Sales Manager",
+      "salary" : 182000
+    },
+    "3480420974" : {
+      "address" : {
+        "city" : "Birmingham",
+        "state" : "Michigan",
+        "street" : "8492 Downs street",
+        "street2" : "N/A",
+        "zipcode" : "48921"
+      },
+      "dept" : "Marketing",
+      "email" : "sarahm4@gmail.com",
+      "emergencyName" : "Joe Smith",
+      "emergencyNumber" : "4859231592",
+      "firstName" : "Sarah",
+      "id" : 3480420974,
+      "lastName" : "Mclennen",
+      "managerID" : 0,
+      "phoneNumber" : "2489823341",
+      "position" : "Secretary",
+      "salary" : 42000
+    },
+    "4142302089" : {
+      "address" : {
+        "city" : "Evansville",
+        "state" : "IN",
+        "street" : "1689  Lucy Lane",
+        "street2" : "N/A",
+        "zipcode" : "47708"
+      },
+      "dept" : "Finance",
+      "email" : "DianePinn@gmail.com",
+      "emergencyName" : "Dale A Plourde",
+      "emergencyNumber" : "812-454-1536",
+      "firstName" : "Diane",
+      "id" : 4142302089,
+      "lastName" : "Pinon",
+      "managerID" : 999,
+      "phoneNumber" : "812-507-9428",
+      "position" : "Auditor",
+      "salary" : 55000
+    },
+    "4226758366" : {
+      "address" : {
+        "city" : "Rochester",
+        "state" : "Michigan",
+        "street" : "219 Wilcox st",
+        "street2" : "N/A",
+        "zipcode" : "48305"
+      },
+      "dept" : "Sales",
+      "email" : "Caldwellk9@gmail.com",
+      "emergencyName" : "Barry Bowin",
+      "emergencyNumber" : "(248)428-4892",
+      "firstName" : "Kurt",
+      "id" : 4226758366,
+      "lastName" : "Caldwell",
+      "managerID" : 9,
+      "phoneNumber" : "(248)832-7299",
+      "position" : "Sales associate",
+      "salary" : 58000
+    },
+    "4475156961" : {
+      "address" : {
+        "city" : "Carson City",
+        "state" : "Nevada",
+        "street" : "1535 Clyde Rd",
+        "street2" : "N/A",
+        "zipcode" : "73728"
+      },
+      "dept" : "Legal",
+      "email" : "Ferdy@gmail.com",
+      "emergencyName" : "Kyle Eastman",
+      "emergencyNumber" : "9093346162",
+      "firstName" : "Ferdinand",
+      "id" : 4475156961,
+      "lastName" : "Morris",
+      "managerID" : 999,
+      "phoneNumber" : "9096564432",
+      "position" : "Lawyer",
+      "salary" : 105000
+    },
+    "4990944256" : {
+      "address" : {
+        "city" : "Flint",
+        "state" : "Pennsylvania",
+        "street" : "9293 Spirit Lane",
+        "street2" : "N/A",
+        "zipcode" : "73847"
+      },
+      "dept" : "Engineering",
+      "email" : "vhudson@gmail.com",
+      "emergencyName" : "Jenna Lambert",
+      "emergencyNumber" : "9903637901",
+      "firstName" : "Victoria",
+      "id" : 4990944256,
+      "lastName" : "Hudson",
+      "managerID" : 0,
+      "phoneNumber" : "9901723618",
+      "position" : "Engineer",
+      "salary" : 89000
+    },
+    "4999178819" : {
+      "address" : {
+        "city" : "WINONA",
+        "state" : "KS",
+        "street" : "1514  Ottis Street",
+        "street2" : "N/A",
+        "zipcode" : "67764"
+      },
+      "dept" : "Marketing",
+      "email" : "BrownsAthlee@gmail.com",
+      "emergencyName" : "",
+      "emergencyNumber" : "620-410-7231",
+      "firstName" : "Athlea",
+      "id" : 4999178819,
+      "lastName" : "Brown",
+      "managerID" : 0,
+      "phoneNumber" : "405-324-0487",
+      "position" : "Account Representative",
+      "salary" : 75000
+    },
+    "5144883559" : {
+      "address" : {
+        "city" : "Macomb",
+        "state" : "Michigan",
+        "street" : "213 Brighton st",
+        "street2" : "N/A",
+        "zipcode" : "48044"
+      },
+      "dept" : "Legal",
+      "email" : "HendyJ99@gmail.com",
+      "emergencyName" : "Jim Combo",
+      "emergencyNumber" : "(812)394-5721",
+      "firstName" : "Jarred",
+      "id" : 5144883559,
+      "lastName" : "Henderson",
+      "managerID" : 4,
+      "phoneNumber" : "(586)484-4682",
+      "position" : "Lawyer",
+      "salary" : 110000
+    },
+    "5278659475" : {
+      "address" : {
+        "city" : "Windom",
+        "state" : "MN",
+        "street" : "167  Sugar Camp Road",
+        "street2" : "N/A",
+        "zipcode" : "56101"
+      },
+      "dept" : "Finance",
+      "email" : "Henderson@gmail.com",
+      "emergencyName" : "Jerry S Hollander",
+      "emergencyNumber" : "507-822-2272",
+      "firstName" : "\tAmanda",
+      "id" : 5278659475,
+      "lastName" : "Henderson",
+      "managerID" : 100,
+      "phoneNumber" : "507-476-2596",
+      "position" : "Budget Analyst",
+      "salary" : 65500
+    },
+    "5422156430" : {
+      "address" : {
+        "city" : "Indianapolis",
+        "state" : "IN",
+        "street" : "1095  Clay Street",
+        "street2" : "N/A",
+        "zipcode" : "46214"
+      },
+      "dept" : "Ops Team",
+      "email" : "JacksonBusiness@gmail.com",
+      "emergencyName" : "William Perryman",
+      "emergencyNumber" : "317-850-9512",
+      "firstName" : "Donald",
+      "id" : 5422156430,
+      "lastName" : "Jackson",
+      "managerID" : 999,
+      "phoneNumber" : "317-445-1032",
+      "position" : "Operations Coordinator",
+      "salary" : 82000
+    },
+    "5680146633" : {
+      "address" : {
+        "city" : "Los Angeles",
+        "state" : "California",
+        "street" : "3453 Hollywood Blvd.",
+        "street2" : "N/A",
+        "zipcode" : "84834"
+      },
+      "dept" : "Maintenance",
+      "email" : "scottystew32@gmail.com",
+      "emergencyName" : "Zena Portman",
+      "emergencyNumber" : "7372940279",
+      "firstName" : "Scott",
+      "id" : 5680146633,
+      "lastName" : "Stewart",
+      "managerID" : 0,
+      "phoneNumber" : "7374452198",
+      "position" : "Janitor",
+      "salary" : 50000
+    },
+    "5811932023" : {
+      "address" : {
+        "city" : "Rochester",
+        "state" : "Michigan",
+        "street" : "193 First st",
+        "street2" : "N/A",
+        "zipcode" : "48329"
+      },
+      "dept" : "Marketing",
+      "email" : "mroberts12@gmail.com",
+      "emergencyName" : "",
+      "emergencyNumber" : "",
+      "firstName" : "Marcus",
+      "id" : 5811932023,
+      "lastName" : "Roberts",
+      "managerID" : 0,
+      "phoneNumber" : "5868292283",
+      "position" : "Executive Assistant",
+      "salary" : 58000
+    },
+    "6161977438" : {
+      "address" : {
+        "city" : "Louisville",
+        "state" : "Ohio",
+        "street" : "439 Seymore Ave",
+        "street2" : "N/A",
+        "zipcode" : "93527"
+      },
+      "dept" : "Finance",
+      "email" : "jordanbates@gmail.com",
+      "emergencyName" : "Samuel Phillips",
+      "emergencyNumber" : "6564778903",
+      "firstName" : "Jordan",
+      "id" : 6161977438,
+      "lastName" : "Bates",
+      "managerID" : 3,
+      "phoneNumber" : "6568774309",
+      "position" : "Accountant",
+      "salary" : 82000
+    },
+    "6266570679" : {
+      "address" : {
+        "city" : "Miami",
+        "state" : "FL",
+        "street" : "170  Ridenour Street",
+        "street2" : "N/A",
+        "zipcode" : "33179"
+      },
+      "dept" : "Accounting",
+      "email" : "RobliingRiiick@gmail.com",
+      "emergencyName" : "Kevin V Wilkinson",
+      "emergencyNumber" : "786-691-6667",
+      "firstName" : "Rick",
+      "id" : 6266570679,
+      "lastName" : "Roble",
+      "managerID" : 98343322,
+      "phoneNumber" : "786-256-5737",
+      "position" : "Payroll Manager",
+      "salary" : 63000
+    },
+    "6507002993" : {
+      "address" : {
+        "city" : "Los Angeles",
+        "state" : "California",
+        "street" : "341 West jeferson st",
+        "street2" : "N/A",
+        "zipcode" : "6213"
+      },
+      "dept" : "Marketing",
+      "email" : "jonahthehill@gmail.com",
+      "emergencyName" : "Steven marron",
+      "emergencyNumber" : "(412)231-2727",
+      "firstName" : "Jonah",
+      "id" : 6507002993,
+      "lastName" : "Hill",
+      "managerID" : 2345192,
+      "phoneNumber" : "(351)512-4711",
+      "position" : "Social media executive",
+      "salary" : 150000
+    },
+    "7226810969" : {
+      "address" : {
+        "city" : "Royal Oak",
+        "state" : "Michigan",
+        "street" : "48571 Parkway ave",
+        "street2" : "N/A",
+        "zipcode" : "48312"
+      },
+      "dept" : "Finance",
+      "email" : "jdeangelo1@gmail.com",
+      "emergencyName" : "Steven Mclennen",
+      "emergencyNumber" : "(321)528-2381",
+      "firstName" : "Jason",
+      "id" : 7226810969,
+      "lastName" : "Deangelo",
+      "managerID" : 0,
+      "phoneNumber" : "5861253019",
+      "position" : "Sales",
+      "salary" : 68000
+    },
+    "7370821829" : {
+      "address" : {
+        "city" : "Detroit",
+        "state" : "Michigan",
+        "street" : "3829 Martin St",
+        "street2" : "N/A",
+        "zipcode" : "48127"
+      },
+      "dept" : "Finance",
+      "email" : "eric@gmail.com",
+      "emergencyName" : "Mariah sow",
+      "emergencyNumber" : "(248)-399-9871",
+      "firstName" : "Eric",
+      "id" : 7370821829,
+      "lastName" : "Owens",
+      "managerID" : 8393810009,
+      "phoneNumber" : "(313)-422-1884",
+      "position" : "Accountant",
+      "salary" : 52000,
+      "tableData" : {
+        "id" : 2
+      }
+    },
+    "7465419741" : {
+      "address" : {
+        "city" : "Youngstown",
+        "state" : "OH",
+        "street" : "1922  Little Street",
+        "street2" : "",
+        "zipcode" : "44502"
+      },
+      "dept" : "Quality",
+      "email" : "WaltingCliff",
+      "emergencyName" : "Calirce Jenkins",
+      "emergencyNumber" : "330-660-9662",
+      "firstName" : "Clifford",
+      "id" : 7465419741,
+      "lastName" : "Walters",
+      "managerID" : 288394892,
+      "phoneNumber" : "330-559-9127",
+      "position" : "Quality Engineer",
+      "salary" : 72000
+    },
+    "8100764777" : {
+      "address" : {
+        "city" : "Greendale",
+        "state" : "Pennsylvania",
+        "street" : "989 Hickory St",
+        "street2" : "N/A",
+        "zipcode" : "83665"
+      },
+      "dept" : "Engineering",
+      "email" : "tracyr@yahoo.com",
+      "emergencyName" : "Jack West",
+      "emergencyNumber" : "8308385274",
+      "firstName" : "Tracy",
+      "id" : 8100764777,
+      "lastName" : "Ryder",
+      "managerID" : 123,
+      "phoneNumber" : "8301127564",
+      "position" : "Engineer",
+      "salary" : 102000
+    },
+    "8131507509" : {
+      "address" : {
+        "city" : "Houston",
+        "state" : "TX",
+        "street" : "4420  Monroe Street",
+        "street2" : "N/A",
+        "zipcode" : "77055"
+      },
+      "dept" : "Customer Service",
+      "email" : "Weingartzed@gmail.com",
+      "emergencyName" : "Allen E Barlow",
+      "emergencyNumber" : "832-275-1068",
+      "firstName" : "Ozie",
+      "id" : 8131507509,
+      "lastName" : "Weingartz",
+      "managerID" : 321897332,
+      "phoneNumber" : "713-465-4701",
+      "position" : "Customer Support",
+      "salary" : 45000
+    },
+    "8174334251" : {
+      "address" : {
+        "city" : "Wakefield",
+        "state" : "Massachusetts",
+        "street" : "8273 Virginia Lane",
+        "street2" : "N/A",
+        "zipcode" : "28838"
+      },
+      "dept" : "Engineering",
+      "email" : "cnewt@gmail.com",
+      "emergencyName" : "Harry Potter",
+      "emergencyNumber" : "2836647253",
+      "firstName" : "Cameron",
+      "id" : 8174334251,
+      "lastName" : "Newton",
+      "managerID" : 90239,
+      "phoneNumber" : "2837285834",
+      "position" : "Engineer",
+      "salary" : 110000
+    },
+    "8393810009" : {
+      "address" : {
+        "city" : "Howell",
+        "state" : "Michigan",
+        "street" : "7378 Stone Rd",
+        "street2" : "N/A",
+        "zipcode" : "48843"
+      },
+      "dept" : "Finance",
+      "email" : "zara@gmail.com",
+      "emergencyName" : "Phill Philabuster",
+      "emergencyNumber" : "(248)-511-9222",
+      "firstName" : "Zara",
+      "id" : 8393810009,
+      "lastName" : "Pennington",
+      "managerID" : 1000000000,
+      "phoneNumber" : "(212)-919-2882",
+      "position" : "Chief Financial Officer",
+      "salary" : 115000,
+      "tableData" : {
+        "id" : 1
+      }
+    },
+    "8594097852" : {
+      "address" : {
+        "city" : "Sterling Heights ",
+        "state" : "Michigan",
+        "street" : "54299 22 mile rd",
+        "street2" : "N/A",
+        "zipcode" : "48313"
+      },
+      "dept" : "Sales",
+      "email" : "Maryg82@aol.com",
+      "emergencyName" : "Macy johnson",
+      "emergencyNumber" : "(231)581-8412",
+      "firstName" : "Mary",
+      "id" : 8594097852,
+      "lastName" : "Gelano",
+      "managerID" : 2,
+      "phoneNumber" : "(248)591-7322",
+      "position" : "Secretary",
+      "salary" : 21000
+    },
+    "8671145603" : {
+      "address" : {
+        "city" : "Macomb",
+        "state" : "Michigan",
+        "street" : "48592 Presidential drive",
+        "street2" : "N/A",
+        "zipcode" : "48044"
+      },
+      "dept" : "Finance",
+      "email" : "Johnstanya12@gmail.com",
+      "emergencyName" : "Kim ",
+      "emergencyNumber" : "5821823392",
+      "firstName" : "Tanya ",
+      "id" : 8671145603,
+      "lastName" : "Johnsteen",
+      "managerID" : 0,
+      "phoneNumber" : "5867234822",
+      "position" : "Sales",
+      "salary" : 52000
+    },
+    "8748655624" : {
+      "address" : {
+        "city" : "",
+        "state" : "",
+        "street" : "TODO",
+        "street2" : "N/A",
+        "zipcode" : ""
+      },
+      "dept" : "Finance",
+      "email" : "zach@gmail.com",
+      "emergencyName" : "Doug Dimmadome",
+      "emergencyNumber" : "(414)-644-1337",
+      "firstName" : "Zach",
+      "id" : 8748655624,
+      "lastName" : "King",
+      "managerID" : 9004337456,
+      "phoneNumber" : "(711)-231-2218",
+      "position" : "Accountant",
+      "salary" : 70000
+    },
+    "8826619309" : {
+      "address" : {
+        "city" : "Rochester",
+        "state" : "Michigan",
+        "street" : "5112 Jefferson Ave",
+        "street2" : "N/A",
+        "zipcode" : "48306"
+      },
+      "dept" : "Legal",
+      "email" : "kyle@yahoo.com",
+      "emergencyName" : "Pete Jaoya",
+      "emergencyNumber" : "(919)-233-2912",
+      "firstName" : "Kyle",
+      "id" : 8826619309,
+      "lastName" : "Richmond",
+      "managerID" : 9008332356,
+      "phoneNumber" : "(212)-112-9238",
+      "position" : "Legal Counsel",
+      "salary" : 103000,
+      "tableData" : {
+        "id" : 4
+      }
+    },
+    "9343854688" : {
+      "address" : {
+        "city" : "Pittsburgh",
+        "state" : "Pennsylvania",
+        "street" : "999 Shoreview Ave",
+        "street2" : "N/A",
+        "zipcode" : "42334"
+      },
+      "dept" : "Legal",
+      "email" : "zekster@hotmail.com",
+      "emergencyName" : "Jordan Stevens",
+      "emergencyNumber" : "2627745627",
+      "firstName" : "Ezekiel",
+      "id" : 9343854688,
+      "lastName" : "Landry",
+      "managerID" : 0,
+      "phoneNumber" : "2625524399",
+      "position" : "Lawyer",
+      "salary" : 100000
+    },
+    "9625017303" : {
+      "address" : {
+        "city" : "Walled lake",
+        "state" : "Michigan",
+        "street" : "55281 Washington st",
+        "street2" : "N/A",
+        "zipcode" : "36810"
+      },
+      "dept" : "Marketing",
+      "email" : "kristieh8@gmail.com",
+      "emergencyName" : "Caitlyn Simpson",
+      "emergencyNumber" : "(586)238-2231",
+      "firstName" : "Kristie",
+      "id" : 9625017303,
+      "lastName" : "Henderstien",
+      "managerID" : 3,
+      "phoneNumber" : "(586)221-5829",
+      "position" : "Customer service",
+      "salary" : 55000
+    },
+    "9940189641" : {
+      "address" : {
+        "city" : "Chicago",
+        "state" : "Illinois",
+        "street" : "7636 Parkview Ave.",
+        "street2" : "N/A",
+        "zipcode" : "44889"
+      },
+      "dept" : "Finance",
+      "email" : "escrant@gmail.com",
+      "emergencyName" : "Sean Gatz",
+      "emergencyNumber" : "2828860902",
+      "firstName" : "Erika",
+      "id" : 9940189641,
+      "lastName" : "Scranton",
+      "managerID" : 0,
+      "phoneNumber" : "4198762615",
+      "position" : "Accountant",
+      "salary" : 94000
+    }
+  },
+  "feedback" : {
+    "175056395" : {
+      "description" : "We need coffee in the office",
+      "employeeId" : 2087490192,
+      "feedbackId" : 175056395,
+      "type" : "Complaint"
+    },
+    "2154193661" : {
+      "description" : "Example text",
+      "employeeId" : 2087490192,
+      "feedbackId" : 2154193661,
+      "type" : "Request"
+    },
+    "2993711418" : {
+      "description" : "I think we should have an office party because I'm bored",
+      "employeeId" : 137803381,
+      "feedbackId" : 2993711418,
+      "type" : "Suggestion"
+    },
+    "7795797760" : {
+      "description" : "I've noticed that ever since we went to online work we still use fax for document sharing. While that has worked well when we were in the office my department feels that sending pdf scans would be a better method to share documents. Thanks!",
+      "employeeId" : 1021599151,
+      "feedbackId" : 7795797760,
+      "type" : "Suggestion"
+    },
+    "8379386354" : {
+      "description" : "I have excelled in all of my recent projects and feel that a raise would be adequate.",
+      "employeeId" : 7370821829,
+      "feedbackId" : 8379386354,
+      "type" : "Request"
+    },
+    "8671074833" : {
+      "description" : "I am extremely angry that I haven't been heard or responded too! I will be complaining to the CEO now!",
+      "employeeId" : 1021599151,
+      "feedbackId" : 8671074833,
+      "type" : "Complaint"
+    },
+    "8737525121" : {
+      "description" : "Somebody stole my entire computer when I left to use the bathroom!",
+      "employeeId" : 1739310389,
+      "feedbackId" : 8737525121,
+      "type" : "Complaint"
+    }
+  },
+  "time" : {
+    "137803381" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 137803381,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "213796944" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 213796944,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "312567501" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 312567501,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-12-09 09:00,2020-12-09 12:00,null",
+      "totalHours" : 160
+    },
+    "374504948" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 374504948,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "528797006" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 528797006,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "835437797" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 835437797,
+      "hoursRemaining" : 128.0,
+      "timeOffs" : "2020-11-25 09:00,2020-11-25 12:00,false|2020-11-23 00:00,2020-11-27 00:00,true",
+      "totalHours" : 160
+    },
+    "1021599151" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1021599151,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-11-23 00:00,2020-11-24 00:00,false",
+      "totalHours" : 160
+    },
+    "1391469725" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1391469725,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2021-04-13 00:00,2021-04-16 00:00,null|2022-10-12 00:00,2022-10-14 00:00,null",
+      "totalHours" : 160
+    },
+    "1545572680" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1545572680,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "1739310389" : {
+      "availability" : "9am-5pm,null,9am-5pm,null,9am-3pm,null,null",
+      "employeeId" : 1739310389,
+      "hoursRemaining" : 0,
+      "timeOffs" : "null",
+      "totalHours" : 50
+    },
+    "1834046084" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1834046084,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "1836163973" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1836163973,
+      "hoursRemaining" : 104.0,
+      "timeOffs" : "2020-11-24 00:00,2020-11-27 00:00,true|2020-11-26 00:00,2020-11-28 00:00,true|2020-11-30 00:00,2020-12-02 00:00,true",
+      "totalHours" : 160
+    },
+    "1943777728" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 1943777728,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-12-31 00:00,2021-01-04 00:00,null",
+      "totalHours" : 160
+    },
+    "2084946876" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 2084946876,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "2087490192" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 2087490192,
+      "hoursRemaining" : 136.0,
+      "timeOffs" : "2020-12-23 00:00,2020-12-26 00:00,true",
+      "totalHours" : 160
+    },
+    "2259077270" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 2259077270,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2026-11-20 00:00,2026-11-22 00:00,null",
+      "totalHours" : 160
+    },
+    "2551512800" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 2551512800,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "2706558480" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-3pm,null,null",
+      "employeeId" : 2706558480,
+      "hoursRemaining" : 108.0,
+      "timeOffs" : "2020-12-02 00:00,2020-12-05 00:00,true|2020-11-23 00:00,2020-11-25 00:00,true|2020-11-19 00:00,2020-11-21 00:00,true",
+      "totalHours" : 160
+    },
+    "2748272849" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-3pm,null,null",
+      "employeeId" : 2748272849,
+      "hoursRemaining" : 80,
+      "timeOffs" : "2020-11-02 00:00,2020-11-05 00:00,true|2020-12-23 00:00,2020-12-26 00:00,false",
+      "totalHours" : 160
+    },
+    "2923517855" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 2923517855,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-12-10 00:00,2020-12-14 00:00,true|2020-12-21 00:00,2020-12-28 00:00,null",
+      "totalHours" : 160
+    },
+    "3202517856" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 3202517856,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "3273630570" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 3273630570,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "3285744082" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 3285744082,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "3381789701" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 3381789701,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "3480420974" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 3480420974,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "4142302089" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 4142302089,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "4226758366" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 4226758366,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-12-14 00:00,2020-12-18 00:00,null",
+      "totalHours" : 160
+    },
+    "4475156961" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 4475156961,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "4990944256" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 4990944256,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "4999178819" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 4999178819,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "5144883559" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 5144883559,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "5278659475" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 5278659475,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "5422156430" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 5422156430,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "5680146633" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 5680146633,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "5811932023" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 5811932023,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "6161977438" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 6161977438,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2021-01-13 00:00,2021-01-18 00:00,null",
+      "totalHours" : 160
+    },
+    "6266570679" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 6266570679,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "6507002993" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 6507002993,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "7226810969" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 7226810969,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "7370821829" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-3pm,null,null",
+      "employeeId" : 7370821829,
+      "hoursRemaining" : 150,
+      "timeOffs" : "2020-11-05 00:00,2020-11-09 00:00,true|2020-11-11 09:00,2020-11-11 14:00,true|2020-11-17 00:00,2020-11-20 00:00,true|2020-11-24 13:00,2020-11-24 17:00,true",
+      "totalHours" : 160
+    },
+    "7465419741" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 7465419741,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "8100764777" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8100764777,
+      "hoursRemaining" : 104.0,
+      "timeOffs" : "2020-11-24 00:00,2020-11-27 00:00,true|2020-12-01 00:00,2020-12-06 00:00,true",
+      "totalHours" : 160
+    },
+    "8131507509" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8131507509,
+      "hoursRemaining" : 136.0,
+      "timeOffs" : "2020-11-23 00:00,2020-11-26 00:00,true|2020-12-07 00:00,2020-12-14 00:00,true",
+      "totalHours" : 160
+    },
+    "8174334251" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8174334251,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "8393810009" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-3pm,null,null",
+      "employeeId" : 8393810009,
+      "hoursRemaining" : 11.0,
+      "timeOffs" : "null",
+      "totalHours" : 100
+    },
+    "8594097852" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8594097852,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "8671145603" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8671145603,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "8748655624" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 8748655624,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-10-26 00:00,2020-11-01 00:00,true|2020-11-23 00:00,2020-11-25 00:00,true",
+      "totalHours" : 160
+    },
+    "8826619309" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-3pm,null,null",
+      "employeeId" : 8826619309,
+      "hoursRemaining" : 16,
+      "timeOffs" : "null",
+      "totalHours" : 150
+    },
+    "9343854688" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 9343854688,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    },
+    "9625017303" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 9625017303,
+      "hoursRemaining" : 160,
+      "timeOffs" : "2020-12-25 09:00,2020-12-25 13:30,null|2020-12-25 00:00,2020-12-27 00:00,null",
+      "totalHours" : 160
+    },
+    "9940189641" : {
+      "availability" : "9am-5pm,9am-5pm,9am-5pm,9am-5pm,9am-5pm,null,null",
+      "employeeId" : 9940189641,
+      "hoursRemaining" : 160,
+      "timeOffs" : "null",
+      "totalHours" : 160
+    }
+  }
+}
